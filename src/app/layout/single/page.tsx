@@ -11,6 +11,7 @@ import SeparatorDemo from "./_demos/SeparatorDemo";
 import TableDemo from "./_demos/TableDemo";
 import ScrollAreaDemo from "./_demos/ScrollAreaDemo";
 import PaginationDemo from "./_demos/PaginationDemo";
+import ToggleDemo from "./_demos/ToggleDemo";
 
 const Page = () => {
   return (
@@ -30,8 +31,8 @@ const Page = () => {
         <ScrollAreaDemo />
         <PaginationDemo />
       </div>
+      <ToggleDemo />
       {/* 簡単 */}
-      {/* https://ui.shadcn.com/docs/components/toggle */}
       {/* https://ui.shadcn.com/docs/components/toggle-group */}
       {/* https://ui.shadcn.com/docs/components/tooltip */}
       {/* フォーム */}
