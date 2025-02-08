@@ -9,6 +9,7 @@ import CardDemo from "./_demos/CardDemo";
 import ProgressDemo from "./_demos/ProgressDemo";
 import SeparatorDemo from "./_demos/SeparatorDemo";
 import TableDemo from "./_demos/TableDemo";
+import ScrollAreaDemo from "./_demos/ScrollAreaDemo";
 
 const Page = () => {
   return (
@@ -26,9 +27,9 @@ const Page = () => {
       </div>
       <SeparatorDemo />
       <TableDemo />
+      <ScrollAreaDemo />
       {/* 簡単 */}
       {/* https://ui.shadcn.com/docs/components/pagination */}
-      {/* https://ui.shadcn.com/docs/components/scroll-area */}
       {/* https://ui.shadcn.com/docs/components/toggle */}
       {/* https://ui.shadcn.com/docs/components/toggle-group */}
       {/* https://ui.shadcn.com/docs/components/tooltip */}
