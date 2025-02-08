@@ -32,12 +32,10 @@ const Page = () => {
         <TableDemo />
         <ScrollAreaDemo />
         <PaginationDemo />
+        <ToggleDemo />
+        <ToggleGroupDemo />
+        <TooltipDemo />
       </div>
-      <ToggleDemo />
-      <ToggleGroupDemo />
-      <TooltipDemo />
-      {/* 簡単 */}
-      {/* https://ui.shadcn.com/docs/components/tooltip */}
       {/* フォーム */}
       {/* https://ui.shadcn.com/docs/components/form */}
       {/* https://ui.shadcn.com/docs/components/checkbox */}
