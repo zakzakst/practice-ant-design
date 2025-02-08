@@ -3,6 +3,7 @@ import AlertDemo from "./_demos/AlertDemo";
 import AspectRatioDemo from "./_demos/AspectRatioDemo";
 import AvatarDemo from "./_demos/AvatarDemo";
 import BadgeDemo from "./_demos/BadgeDemo";
+import BreadcrumbDemo from "./_demos/BreadcrumbDemo";
 
 const Page = () => {
   return (
@@ -13,6 +14,7 @@ const Page = () => {
       <AspectRatioDemo />
       <AvatarDemo />
       <BadgeDemo />
+      <BreadcrumbDemo />
     </div>
   );
 };
