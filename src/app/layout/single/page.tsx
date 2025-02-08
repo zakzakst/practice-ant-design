@@ -12,6 +12,8 @@ import TableDemo from "./_demos/TableDemo";
 import ScrollAreaDemo from "./_demos/ScrollAreaDemo";
 import PaginationDemo from "./_demos/PaginationDemo";
 import ToggleDemo from "./_demos/ToggleDemo";
+import ToggleGroupDemo from "./_demos/ToggleGroupDemo";
+import TooltipDemo from "./_demos/TooltipDemo";
 
 const Page = () => {
   return (
@@ -30,11 +32,10 @@ const Page = () => {
         <TableDemo />
         <ScrollAreaDemo />
         <PaginationDemo />
+        <ToggleDemo />
+        <ToggleGroupDemo />
+        <TooltipDemo />
       </div>
-      <ToggleDemo />
-      {/* 簡単 */}
-      {/* https://ui.shadcn.com/docs/components/toggle-group */}
-      {/* https://ui.shadcn.com/docs/components/tooltip */}
       {/* フォーム */}
       {/* https://ui.shadcn.com/docs/components/form */}
       {/* https://ui.shadcn.com/docs/components/checkbox */}
