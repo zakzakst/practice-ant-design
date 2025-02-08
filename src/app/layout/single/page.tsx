@@ -6,6 +6,7 @@ import BadgeDemo from "./_demos/BadgeDemo";
 import BreadcrumbDemo from "./_demos/BreadcrumbDemo";
 import ButtonDemo from "./_demos/ButtonDemo";
 import CardDemo from "./_demos/CardDemo";
+import ProgressDemo from "./_demos/ProgressDemo";
 
 const Page = () => {
   return (
@@ -18,9 +19,9 @@ const Page = () => {
       <BreadcrumbDemo />
       <ButtonDemo />
       <CardDemo />
+      <ProgressDemo />
       {/* 簡単 */}
       {/* https://ui.shadcn.com/docs/components/pagination */}
-      {/* https://ui.shadcn.com/docs/components/progress */}
       {/* https://ui.shadcn.com/docs/components/scroll-area */}
       {/* https://ui.shadcn.com/docs/components/separator */}
       {/* https://ui.shadcn.com/docs/components/table */}
