@@ -15,6 +15,9 @@ import ToggleDemo from "./_demos/ToggleDemo";
 import ToggleGroupDemo from "./_demos/ToggleGroupDemo";
 import TooltipDemo from "./_demos/TooltipDemo";
 
+import InputDemo from "./_form/InputDemo";
+import LabelDemo from "./_form/LabelDemo";
+
 const Page = () => {
   return (
     <div className="grid grid-cols-1 gap-8">
@@ -36,11 +39,11 @@ const Page = () => {
         <ToggleGroupDemo />
         <TooltipDemo />
       </div>
+      <InputDemo />
+      <LabelDemo />
       {/* フォーム */}
       {/* https://ui.shadcn.com/docs/components/form */}
       {/* https://ui.shadcn.com/docs/components/checkbox */}
-      {/* https://ui.shadcn.com/docs/components/input */}
-      {/* https://ui.shadcn.com/docs/components/label */}
       {/* https://ui.shadcn.com/docs/components/radio-group */}
       {/* https://ui.shadcn.com/docs/components/select */}
       {/* https://ui.shadcn.com/docs/components/switch */}
