@@ -13,6 +13,7 @@ import ScrollAreaDemo from "./_demos/ScrollAreaDemo";
 import PaginationDemo from "./_demos/PaginationDemo";
 import ToggleDemo from "./_demos/ToggleDemo";
 import ToggleGroupDemo from "./_demos/ToggleGroupDemo";
+import TooltipDemo from "./_demos/TooltipDemo";
 
 const Page = () => {
   return (
@@ -34,6 +35,7 @@ const Page = () => {
       </div>
       <ToggleDemo />
       <ToggleGroupDemo />
+      <TooltipDemo />
       {/* 簡単 */}
       {/* https://ui.shadcn.com/docs/components/tooltip */}
       {/* フォーム */}
