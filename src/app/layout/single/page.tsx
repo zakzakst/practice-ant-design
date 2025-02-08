@@ -1,17 +1,10 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import AccordionDemo from "./_demos/AccordionDemo";
 
 const Page = () => {
   return (
-    <div
-    // className="p-6"
-    // style={{ height: "200vh" }}
-    >
-      <Button variant="link" asChild>
-        <Link href="/">Link</Link>
-        {/* Button */}
-      </Button>
-    </div>
+    <>
+      <AccordionDemo />
+    </>
   );
 };
 
