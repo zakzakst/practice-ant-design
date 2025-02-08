@@ -2,6 +2,7 @@ import AccordionDemo from "./_demos/AccordionDemo";
 import AlertDemo from "./_demos/AlertDemo";
 import AspectRatioDemo from "./_demos/AspectRatioDemo";
 import AvatarDemo from "./_demos/AvatarDemo";
+import BadgeDemo from "./_demos/BadgeDemo";
 
 const Page = () => {
   return (
@@ -11,6 +12,7 @@ const Page = () => {
       {/* https://ui.shadcn.com/docs/components/alert-dialog */}
       <AspectRatioDemo />
       <AvatarDemo />
+      <BadgeDemo />
     </div>
   );
 };
