@@ -7,23 +7,26 @@ import BreadcrumbDemo from "./_demos/BreadcrumbDemo";
 import ButtonDemo from "./_demos/ButtonDemo";
 import CardDemo from "./_demos/CardDemo";
 import ProgressDemo from "./_demos/ProgressDemo";
+import SeparatorDemo from "./_demos/SeparatorDemo";
 
 const Page = () => {
   return (
     <div className="grid grid-cols-1 gap-8">
-      <AccordionDemo />
-      <AlertDemo />
-      <AspectRatioDemo />
-      <AvatarDemo />
-      <BadgeDemo />
-      <BreadcrumbDemo />
-      <ButtonDemo />
-      <CardDemo />
-      <ProgressDemo />
+      <div className="hidden">
+        <AccordionDemo />
+        <AlertDemo />
+        <AspectRatioDemo />
+        <AvatarDemo />
+        <BadgeDemo />
+        <BreadcrumbDemo />
+        <ButtonDemo />
+        <CardDemo />
+        <ProgressDemo />
+      </div>
+      <SeparatorDemo />
       {/* 簡単 */}
       {/* https://ui.shadcn.com/docs/components/pagination */}
       {/* https://ui.shadcn.com/docs/components/scroll-area */}
-      {/* https://ui.shadcn.com/docs/components/separator */}
       {/* https://ui.shadcn.com/docs/components/table */}
       {/* https://ui.shadcn.com/docs/components/toggle */}
       {/* https://ui.shadcn.com/docs/components/toggle-group */}
