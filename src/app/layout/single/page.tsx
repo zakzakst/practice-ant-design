@@ -6,6 +6,7 @@ import SwitchDemo from "./_form/SwitchDemo";
 import RadioGroupDemo from "./_form/RadioGroupDemo";
 import SelectDemo from "./_form/SelectDemo";
 import SliderDemo from "./_form/SliderDemo";
+import DatePickerDemo from "./_form/DatePickerDemo";
 
 import AccordionDemo from "./_demos/AccordionDemo";
 import AlertDemo from "./_demos/AlertDemo";
@@ -36,7 +37,6 @@ const Page = () => {
       <div className="grid grid-cols-1 gap-8 hidden">
         {/* フォーム */}
         {/* https://ui.shadcn.com/docs/components/form */}
-        {/* https://ui.shadcn.com/docs/components/date-picker */}
         <InputDemo />
         <LabelDemo />
         <TextareaDemo />
@@ -45,8 +45,9 @@ const Page = () => {
         <RadioGroupDemo />
         <SelectDemo />
         <SliderDemo />
+        <DatePickerDemo />
       </div>
-      <div className="hidden">
+      <div className="grid grid-cols-1 gap-8 hidden">
         <AccordionDemo />
         <AlertDemo />
         <AspectRatioDemo />
@@ -63,15 +64,13 @@ const Page = () => {
         <ToggleDemo />
         <ToggleGroupDemo />
         <TooltipDemo />
+        <TabsDemo />
+        <PopoverDemo />
+        <DialogDemo />
+        <AlertDialogDemo />
+        <SheetDemo />
+        <ToastDemo />
       </div>
-      <TabsDemo />
-      <PopoverDemo />
-      <DialogDemo />
-      <AlertDialogDemo />
-      <SheetDemo />
-      <ToastDemo />
-      {/* TODO: */}
-      {/* https://ui.shadcn.com/docs/components/toast */}
     </div>
   );
 };
