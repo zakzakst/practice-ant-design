@@ -1,3 +1,12 @@
+import InputDemo from "./_form/InputDemo";
+import LabelDemo from "./_form/LabelDemo";
+import TextareaDemo from "./_form/TextareaDemo";
+import CheckboxDemo from "./_form/CheckboxDemo";
+import SwitchDemo from "./_form/SwitchDemo";
+import RadioGroupDemo from "./_form/RadioGroupDemo";
+import SelectDemo from "./_form/SelectDemo";
+import SliderDemo from "./_form/SliderDemo";
+
 import AccordionDemo from "./_demos/AccordionDemo";
 import AlertDemo from "./_demos/AlertDemo";
 import AspectRatioDemo from "./_demos/AspectRatioDemo";
@@ -14,19 +23,27 @@ import PaginationDemo from "./_demos/PaginationDemo";
 import ToggleDemo from "./_demos/ToggleDemo";
 import ToggleGroupDemo from "./_demos/ToggleGroupDemo";
 import TooltipDemo from "./_demos/TooltipDemo";
-
-import InputDemo from "./_form/InputDemo";
-import LabelDemo from "./_form/LabelDemo";
-import TextareaDemo from "./_form/TextareaDemo";
-import CheckboxDemo from "./_form/CheckboxDemo";
-import SwitchDemo from "./_form/SwitchDemo";
-import RadioGroupDemo from "./_form/RadioGroupDemo";
-import SelectDemo from "./_form/SelectDemo";
-import SliderDemo from "./_form/SliderDemo";
+import TabsDemo from "./_demos/TabsDemo";
+import PopoverDemo from "./_demos/PopoverDemo";
+import DialogDemo from "./_demos/DialogDemo";
+import AlertDialogDemo from "./_demos/AlertDialogDemo";
 
 const Page = () => {
   return (
     <div className="grid grid-cols-1 gap-8">
+      <div className="grid grid-cols-1 gap-8 hidden">
+        {/* フォーム */}
+        {/* https://ui.shadcn.com/docs/components/form */}
+        {/* https://ui.shadcn.com/docs/components/date-picker */}
+        <InputDemo />
+        <LabelDemo />
+        <TextareaDemo />
+        <CheckboxDemo />
+        <SwitchDemo />
+        <RadioGroupDemo />
+        <SelectDemo />
+        <SliderDemo />
+      </div>
       <div className="hidden">
         <AccordionDemo />
         <AlertDemo />
@@ -45,25 +62,13 @@ const Page = () => {
         <ToggleGroupDemo />
         <TooltipDemo />
       </div>
-      <div className="grid grid-cols-1 gap-8 hidden">
-        {/* フォーム */}
-        {/* https://ui.shadcn.com/docs/components/form */}
-        <InputDemo />
-        <LabelDemo />
-        <TextareaDemo />
-        <CheckboxDemo />
-        <SwitchDemo />
-        <RadioGroupDemo />
-        <SelectDemo />
-        <SliderDemo />
-      </div>
+      <TabsDemo />
+      <PopoverDemo />
+      <DialogDemo />
+      <AlertDialogDemo />
       {/* TODO: */}
-      {/* https://ui.shadcn.com/docs/components/dialog */}
-      {/* https://ui.shadcn.com/docs/components/alert-dialog */}
-      {/* https://ui.shadcn.com/docs/components/tabs */}
       {/* https://ui.shadcn.com/docs/components/toast */}
       {/* https://ui.shadcn.com/docs/components/sheet */}
-      {/* https://ui.shadcn.com/docs/components/popover */}
       {/* https://ui.shadcn.com/docs/components/sidebar */}
     </div>
   );
