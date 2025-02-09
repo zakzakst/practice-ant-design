@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
@@ -17,6 +17,34 @@ import {
 } from "@/components/ui/select";
 import { Button } from "@/components/ui/button";
 
+type Address = {
+  street: string;
+  suite: string;
+  city: string;
+  zipcode: string;
+  geo: {
+    lat: string;
+    lng: string;
+  };
+};
+
+type Company = {
+  name: string;
+  catchPhrase: string;
+  bs: string;
+};
+
+type User = {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  address: Address;
+  phone: string;
+  website: string;
+  company: Company;
+};
+
 type FormValues = {
   username: string;
   profile: string;
@@ -24,6 +52,7 @@ type FormValues = {
   switch: boolean;
   favorite: string;
   color: string;
+  userId: string;
 };
 
 const DefaultValues: FormValues = {
@@ -33,6 +62,7 @@ const DefaultValues: FormValues = {
   switch: false,
   favorite: "",
   color: "",
+  userId: "",
 };
 
 const Page = () => {
@@ -45,6 +75,22 @@ const Page = () => {
     defaultValues: DefaultValues,
   });
   const [values, setValues] = useState<FormValues>(DefaultValues);
+  const [users, setUsers] = useState<User[]>([]);
+
+  useEffect(() => {
+    const fetchUsers = async () => {
+      try {
+        const response = await fetch(
+          "https://jsonplaceholder.typicode.com/users"
+        );
+        const json = await response.json();
+        setUsers(json);
+      } catch (error) {
+        console.error("Failed to fetch users:", error);
+      }
+    };
+    fetchUsers();
+  }, []);
 
   const onSubmit = (data: FormValues) => {
     setValues(data);
@@ -185,7 +231,36 @@ const Page = () => {
           )}
         </div>
 
-        {/* TODO: APIで項目を取得するパターンのセレクトボックス */}
+        <div className="mt-4">
+          <Controller
+            name="userId"
+            control={control}
+            rules={{
+              required: "ユーザーを選択してください",
+            }}
+            render={({ field }) => (
+              <Select
+                defaultValue={users[0]?.id.toString()}
+                value={field.value}
+                onValueChange={(e) => field.onChange(e)}
+              >
+                <SelectTrigger className="w-[180px]">
+                  <SelectValue placeholder="ユーザーを選択してください" />
+                </SelectTrigger>
+                <SelectContent>
+                  {users.map((user) => (
+                    <SelectItem key={user.id} value={user.id.toString()}>
+                      {user.name}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            )}
+          />
+          {errors.userId && (
+            <p className="text-destructive">{errors.userId.message}</p>
+          )}
+        </div>
 
         <div className="mt-4">
           <Button type="submit" disabled={Object.keys(errors).length > 0}>
