@@ -36,7 +36,6 @@ const Page = () => {
     <div className="grid grid-cols-1 gap-8">
       <div className="grid grid-cols-1 gap-8 hidden">
         {/* フォーム */}
-        {/* https://ui.shadcn.com/docs/components/form */}
         <InputDemo />
         <LabelDemo />
         <TextareaDemo />
