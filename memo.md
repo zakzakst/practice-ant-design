@@ -6,7 +6,9 @@ https://shadcnui-templates.com/all-templates
 
 ## shadcn/ui にないが、よく使いそうなコンポーネント（UI 特化のライブラリのため補足用として参考にする）
 
-https://preline.co/docs/typography.html
+- 文字：https://preline.co/docs/typography.html
+- リスト（ul,ol）：
+- ボックス：
 
 ## 使わない
 

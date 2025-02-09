@@ -17,6 +17,9 @@ import TooltipDemo from "./_demos/TooltipDemo";
 
 import InputDemo from "./_form/InputDemo";
 import LabelDemo from "./_form/LabelDemo";
+import TextareaDemo from "./_form/TextareaDemo";
+import CheckboxDemo from "./_form/CheckboxDemo";
+import SwitchDemo from "./_form/SwitchDemo";
 
 const Page = () => {
   return (
@@ -41,13 +44,13 @@ const Page = () => {
       </div>
       <InputDemo />
       <LabelDemo />
+      <TextareaDemo />
+      <CheckboxDemo />
+      <SwitchDemo />
       {/* フォーム */}
       {/* https://ui.shadcn.com/docs/components/form */}
-      {/* https://ui.shadcn.com/docs/components/checkbox */}
       {/* https://ui.shadcn.com/docs/components/radio-group */}
       {/* https://ui.shadcn.com/docs/components/select */}
-      {/* https://ui.shadcn.com/docs/components/switch */}
-      {/* https://ui.shadcn.com/docs/components/textarea */}
       {/* TODO: */}
       {/* https://ui.shadcn.com/docs/components/alert-dialog */}
       {/* https://ui.shadcn.com/docs/components/dialog */}
