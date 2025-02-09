@@ -4,7 +4,7 @@ import LayoutFooter from "@/app/layout/_components/LayoutFooter";
 type Props = {
   children: React.ReactNode;
 };
-
+// https://ui.shadcn.com/docs/components/sidebar
 const Layout = ({ children }: Props) => {
   return (
     <div className="flex min-h-screen flex-col">

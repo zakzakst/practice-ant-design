@@ -27,6 +27,8 @@ import TabsDemo from "./_demos/TabsDemo";
 import PopoverDemo from "./_demos/PopoverDemo";
 import DialogDemo from "./_demos/DialogDemo";
 import AlertDialogDemo from "./_demos/AlertDialogDemo";
+import SheetDemo from "./_demos/SheetDemo";
+import ToastDemo from "./_demos/ToastDemo";
 
 const Page = () => {
   return (
@@ -66,10 +68,10 @@ const Page = () => {
       <PopoverDemo />
       <DialogDemo />
       <AlertDialogDemo />
+      <SheetDemo />
+      <ToastDemo />
       {/* TODO: */}
       {/* https://ui.shadcn.com/docs/components/toast */}
-      {/* https://ui.shadcn.com/docs/components/sheet */}
-      {/* https://ui.shadcn.com/docs/components/sidebar */}
     </div>
   );
 };
