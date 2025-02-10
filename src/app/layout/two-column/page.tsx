@@ -11,6 +11,10 @@ const Page = () => {
         <Link href="/">Link</Link>
         {/* Button */}
       </Button>
+      <Button className="bg-accent" asChild>
+        <Link href="/">Link</Link>
+        {/* Button */}
+      </Button>
     </div>
   );
 };
