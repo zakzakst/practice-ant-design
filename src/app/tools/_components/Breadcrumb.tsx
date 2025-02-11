@@ -24,22 +24,20 @@ const Breadcrumb = ({ items, className }: Props) => {
       <BreadcrumbList>
         {items.map((item) => {
           const isLast = items.indexOf(item) === items.length - 1;
-          if (isLast) {
-            return (
+          return (
+            <>
               <UiBreadcrumbItem key={item.id}>
-                <BreadcrumbPage>{item.label}</BreadcrumbPage>
-              </UiBreadcrumbItem>
-            );
-          } else {
-            return (
-              <>
-                <UiBreadcrumbItem key={item.id}>
+                {isLast ? (
+                  <BreadcrumbPage>{item.label}</BreadcrumbPage>
+                ) : (
                   <BreadcrumbLink href={item.href}>{item.label}</BreadcrumbLink>
-                </UiBreadcrumbItem>
-                <BreadcrumbSeparator />
-              </>
-            );
-          }
+                )}
+              </UiBreadcrumbItem>
+              {isLast ? null : (
+                <BreadcrumbSeparator key={`${item.id}-separator`} />
+              )}
+            </>
+          );
         })}
       </BreadcrumbList>
     </UiBreadcrumb>
