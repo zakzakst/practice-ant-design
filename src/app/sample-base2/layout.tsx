@@ -4,7 +4,8 @@ import Footer from "@/app/sample-base2/_components/Footer";
 
 type Props = {
   children: React.ReactNode;
-  sidebar?: React.ReactNode;
+  sidebar: React.ReactNode;
+  // NOTE: sidebarをオプショナルにするとbuild時にエラーになる
   // sidebar?: React.ReactElement | null;
 };
 

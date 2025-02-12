@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import Breadcrumb from "@/app/tools/_components/Breadcrumb";
 import Select from "@/app/tools/_components/Select";
 import ListInput, { ListInputItem } from "@/app/tools/_components/ListInput";
@@ -176,7 +176,23 @@ const Page = () => {
   const [proceed, setProceed] = useState("");
   const [notes, setNotes] = useState("");
 
-  // TODO: データ読み込み（jsonを読み込んでフォームに反映）
+  const onFileUpload = (e: ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files ? e.target.files[0] : null;
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      if (!e.target?.result) return;
+      const data = JSON.parse(e.target.result as string);
+      setTitle(data.title);
+      setPurpose(data.purpose);
+      setMeetingType(data.meetingType);
+      setGoals(data.goals);
+      setAgendas(data.agendas);
+      setProceed(data.proceed);
+      setNotes(data.notes);
+    };
+    reader.readAsText(file);
+  };
 
   const onCopyToClipboard = () => {
     const text = getMeetingText(
@@ -230,6 +246,17 @@ const Page = () => {
       <Breadcrumb items={breadcrumbItems} />
 
       <div className="mt-4 grid grid-cols-1 gap-6">
+        <div className="grid grid-cols-[200px_1fr] gap-4">
+          <div className="grid justify-end">データ読み込み</div>
+          <div>
+            <Input
+              type="file"
+              accept="application/json"
+              className="w-60"
+              onChange={(e) => onFileUpload(e)}
+            />
+          </div>
+        </div>
         <div className="grid grid-cols-[200px_1fr] gap-4">
           <div className="grid justify-end">
             <p>タイトル</p>
@@ -314,7 +341,7 @@ const Page = () => {
         </div>
         <div className="grid grid-cols-[200px_1fr] gap-4">
           <div></div>
-          <div className="flex gap-2">
+          <div className="flex flex-wrap gap-2">
             <Button onClick={onCopyToClipboard}>クリップボードにコピー</Button>
             <Button onClick={onDownloadMdFile}>
               マークダウンファイルをダウンロード
