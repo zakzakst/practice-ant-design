@@ -18,6 +18,7 @@ type Props = {
   className?: string;
 };
 
+// TODO: mapのkey指定がユニークでない、とのエラーが出るので対応する
 const Breadcrumb = ({ items, className }: Props) => {
   return (
     <UiBreadcrumb className={className}>

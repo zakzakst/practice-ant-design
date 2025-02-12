@@ -6,6 +6,7 @@ import Select from "@/app/tools/_components/Select";
 import ListInput, { ListInputItem } from "@/app/tools/_components/ListInput";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Button } from "@/components/ui/button";
 
 const breadcrumbItems = [
   { id: "tools", label: "ツール", href: "/tools" },
@@ -20,9 +21,119 @@ const meetingTypes = [
   { id: "feedback", label: "フィードバック" },
 ];
 
+const ProceedTemplateInformationSharing = `## 目的
+参加者に必要な情報を伝え、共通認識を持たせる
+
+## 進行
+1. 目的とアジェンダの説明
+2. 情報の提供（要点を絞る）
+3. 質疑応答・確認
+4. まとめ & 次のアクション
+
+## 進行のポイント
+- 要点を明確にし、ダラダラ話さない
+- 視覚資料を活用
+- 重要なポイントを3つ程度にまとめる
+
+## アウトプット
+参加者の理解度向上、共通認識の形成`;
+
+const ProceedTemplateAlignment = `## 目的
+認識のズレを解消し、共通理解を得る
+
+## 進行
+1. 目的と論点の確認
+2. 各自の認識を共有
+3. 認識の違いを整理・調整
+4. 決定事項・未決事項の整理
+
+## 進行のポイント
+- 事前に論点を整理しておく
+- 議論が発散しすぎないよう進行
+- 「この点について同じ認識でOKか？」と確認しながら進める
+
+## アウトプット
+認識の統一、合意形成、今後の対応方針`;
+
+const ProceedTemplateBrainstorming = `## 目的
+新しい発想や解決策を生み出す
+
+## 進行
+1. テーマ・目的の共有
+2. アイデア発散（ブレインストーミング）
+3. アイデアの整理・分類
+4. 有望なアイデアの選定・深掘り
+
+## 進行のポイント
+- まずは批判せずに自由に出す
+- 似たアイデアをまとめて整理
+- 発散（拡げる）→ 収束（絞る）の流れを意識
+
+## アウトプット
+アイデアのリスト、コンセプト案、次のステップ`;
+
+const ProceedTemplateDecisionMaking = `## 目的
+何をするかを決定し、実行に移す
+
+## 進行
+1. 目的・判断基準の確認
+2. 選択肢の提示・比較
+3. 意見交換・評価
+4. 結論の確定 & 役割分担
+
+## 進行のポイント
+- 判断基準を明確にする
+- 参加者の合意を得るプロセスを大切に
+- 「何を・誰が・いつまでに」を明確にする
+
+## アウトプット
+決定事項、実行計画、担当者と期限`;
+
+const ProceedTemplateFeedback = `## 目的
+何かに対する評価・改善点を共有し、成長や改善につなげる
+
+## 進行
+1. フィードバックの目的説明
+2. 評価・指摘（具体的に）
+3. 改善のための提案
+4. 双方向の意見交換・質疑応答
+
+## 進行のポイント
+- 具体的な例を挙げて伝える
+- ポジティブな点も含める（サンドイッチ法など）
+- 相手が受け入れやすい形で伝える
+
+## アウトプット
+改善点の整理、今後のアクション、成長の方向性`;
+
+const proceedTemplates = [
+  { id: "information-sharing", template: ProceedTemplateInformationSharing },
+  { id: "alignment", template: ProceedTemplateAlignment },
+  { id: "brainstorming", template: ProceedTemplateBrainstorming },
+  { id: "decision-making", template: ProceedTemplateDecisionMaking },
+  { id: "feedback", template: ProceedTemplateFeedback },
+];
+
 const Page = () => {
+  const [title, setTitle] = useState("");
+  const [purpose, setPurpose] = useState("");
+  const [meetingType, setMeetingType] = useState("");
   const [goals, setGoals] = useState<ListInputItem[]>([]);
   const [agendas, setAgendas] = useState<ListInputItem[]>([]);
+  const [proceed, setProceed] = useState("");
+  const [notes, setNotes] = useState("");
+
+  const onSave = () => {
+    console.log(title, purpose, meetingType, goals, agendas, proceed, notes);
+  };
+
+  const setProceedByTemplate = () => {
+    const template = proceedTemplates.find(
+      (t) => t.id === meetingType
+    )?.template;
+    if (!template) return;
+    setProceed(template);
+  };
 
   return (
     <div className="container mx-auto p-4">
@@ -36,6 +147,8 @@ const Page = () => {
           <div>
             <Input
               type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
               placeholder="例：コーディング規約についてのアイデア出し"
             />
           </div>
@@ -45,7 +158,11 @@ const Page = () => {
             <p>背景・目的</p>
           </div>
           <div>
-            <Textarea placeholder="例：コーディング規約の統一により、コードの可読性と保守性を向上させる" />
+            <Textarea
+              value={purpose}
+              onChange={(e) => setPurpose(e.target.value)}
+              placeholder="例：コーディング規約の統一により、コードの可読性と保守性を向上させる"
+            />
           </div>
         </div>
         <div className="grid grid-cols-[200px_1fr] gap-4">
@@ -53,7 +170,12 @@ const Page = () => {
             <p>種類</p>
           </div>
           <div>
-            <Select placeholder="選択してください" items={meetingTypes} />
+            <Select
+              placeholder="選択してください"
+              items={meetingTypes}
+              value={meetingType}
+              onChange={(value) => setMeetingType(value)}
+            />
           </div>
         </div>
         <div className="grid grid-cols-[200px_1fr] gap-4">
@@ -77,8 +199,16 @@ const Page = () => {
             <p>進め方</p>
           </div>
           <div>
-            <Textarea />
-            {/* TODO: 「テンプレートから内容を入力する」ボタン */}
+            <Textarea
+              value={proceed}
+              onChange={(e) => setProceed(e.target.value)}
+              className="h-40"
+            />
+            <div className="mt-2">
+              <Button onClick={setProceedByTemplate} disabled={!meetingType}>
+                テンプレートから内容を入力する
+              </Button>
+            </div>
           </div>
         </div>
         <div className="grid grid-cols-[200px_1fr] gap-4">
@@ -86,8 +216,14 @@ const Page = () => {
             <p>共有事項・資料</p>
           </div>
           <div>
-            <Textarea />
+            <Textarea
+              value={notes}
+              onChange={(e) => setNotes(e.target.value)}
+            />
           </div>
+        </div>
+        <div>
+          <Button onClick={onSave}>保存</Button>
         </div>
       </div>
     </div>
