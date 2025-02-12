@@ -13,7 +13,7 @@ type Props = {
 };
 
 const ListInput = ({ items, onChange }: Props) => {
-  const [isShowInput, setIsShowInput] = useState(false);
+  // const [isShowInput, setIsShowInput] = useState(false);
   const [inputValue, setInputValue] = useState("");
 
   const addItem = () => {
@@ -27,7 +27,7 @@ const ListInput = ({ items, onChange }: Props) => {
 
   return (
     <div>
-      {items.length > 0 && (
+      {items.length > 0 ? (
         <ul className="mb-2 grid list-inside list-disc gap-0">
           {items.map((item, index) => (
             <li key={index}>
@@ -45,8 +45,25 @@ const ListInput = ({ items, onChange }: Props) => {
             </li>
           ))}
         </ul>
+      ) : (
+        <p className="mb-2">入力された項目はありません</p>
       )}
-      {isShowInput ? (
+      <div className="grid grid-cols-[1fr_100px] gap-2">
+        <Input
+          type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
+        />
+        <Button
+          size="sm"
+          className="h-full"
+          disabled={!inputValue}
+          onClick={() => addItem()}
+        >
+          リストに追加
+        </Button>
+      </div>
+      {/* {isShowInput ? (
         <>
           <div>
             <Input
@@ -70,7 +87,7 @@ const ListInput = ({ items, onChange }: Props) => {
             入力欄を表示
           </Button>
         </div>
-      )}
+      )} */}
     </div>
   );
 };

@@ -14,11 +14,13 @@ type SelectItem = {
 type Props = {
   placeholder?: string;
   items: SelectItem[];
+  value: string;
+  onChange: (value: string) => void;
 };
 
-const Select = ({ placeholder, items }: Props) => {
+const Select = ({ placeholder, items, value, onChange }: Props) => {
   return (
-    <UiSelect>
+    <UiSelect value={value} onValueChange={(value) => onChange(value)}>
       <SelectTrigger>
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
