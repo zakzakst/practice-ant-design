@@ -19,13 +19,13 @@ const Layout = ({ children, sidebar }: Props) => {
         {/* TODO: ここの条件分岐上手くいかなかったLayoutコンポーネント（layout.tsxでない）作ってPropsで渡すほうがシンプル？ */}
         {sidebar !== null ? (
           // サイドバーがある場合
-          <div className="mx-auto container grid grid-cols-[200px_1fr]">
+          <div className="container mx-auto grid grid-cols-[200px_1fr]">
             <aside className="p-4">{sidebar}</aside>
             <main className="p-4">{children}</main>
           </div>
         ) : (
           // サイドバーがない場合
-          <div className="mx-auto container">
+          <div className="container mx-auto">
             <main className="p-4">{children}</main>
           </div>
         )}

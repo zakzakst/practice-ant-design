@@ -8,7 +8,7 @@ const ProgressDemo = () => {
     <section>
       <DesignHeading tag="h4">プログレスバー</DesignHeading>
       <DesignBox className="mt-4">
-        <Progress value={60} className="w-[60%]" />
+        <Progress value={60} className="w-3/5" />
       </DesignBox>
     </section>
   );

@@ -28,7 +28,7 @@ const ListInput = ({ items, onChange }: Props) => {
   return (
     <div>
       {items.length > 0 && (
-        <ul className="list-disc list-inside grid gap-0 mb-2">
+        <ul className="mb-2 grid list-inside list-disc gap-0">
           {items.map((item, index) => (
             <li key={index}>
               <span className="inline-flex items-center gap-2">
@@ -37,9 +37,9 @@ const ListInput = ({ items, onChange }: Props) => {
                   size="icon"
                   variant="ghost"
                   onClick={() => deleteItem(index)}
-                  className="w-6 h-6"
+                  className="size-6"
                 >
-                  <X className="h-4 w-4" />
+                  <X className="size-4" />
                 </Button>
               </span>
             </li>

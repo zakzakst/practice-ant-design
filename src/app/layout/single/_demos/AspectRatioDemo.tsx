@@ -16,7 +16,7 @@ const AspectRatioDemo = () => {
               alt="ダミー画像"
               width={600}
               height={600}
-              className="h-full w-full rounded-md object-cover"
+              className="size-full rounded-md object-cover"
             />
           </AspectRatio>
         </div>

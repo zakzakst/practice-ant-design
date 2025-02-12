@@ -28,7 +28,7 @@ const Page = () => {
     <div className="container mx-auto p-4">
       <Breadcrumb items={breadcrumbItems} />
 
-      <div className="grid grid-cols-1 mt-4 gap-6">
+      <div className="mt-4 grid grid-cols-1 gap-6">
         <div className="grid grid-cols-[200px_1fr] gap-4">
           <div className="grid justify-end">
             <p>タイトル</p>
