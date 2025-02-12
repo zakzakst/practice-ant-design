@@ -1,6 +1,5 @@
-"use client";
-import Header from "@/app/sample-base2/_components/Header";
-import Footer from "@/app/sample-base2/_components/Footer";
+import Header from "@/app/sample-base3/_components/Header";
+import Footer from "@/app/sample-base3/_components/Footer";
 
 type Props = {
   children: React.ReactNode;
@@ -8,7 +7,7 @@ type Props = {
   // sidebar?: React.ReactElement | null;
 };
 
-const Layout = ({ children, sidebar }: Props) => {
+const PageContainer = ({ children, sidebar }: Props) => {
   // console.log("sidebar:", sidebar, children);
   return (
     <>
@@ -16,8 +15,7 @@ const Layout = ({ children, sidebar }: Props) => {
         <div className="sticky top-0 z-10 w-full">
           <Header />
         </div>
-        {/* TODO: ここの条件分岐上手くいかなかったLayoutコンポーネント（layout.tsxでない）作ってPropsで渡すほうがシンプル？ */}
-        {sidebar !== null ? (
+        {sidebar ? (
           // サイドバーがある場合
           <div className="mx-auto container grid grid-cols-[200px_1fr]">
             <aside className="p-4">{sidebar}</aside>
@@ -37,4 +35,4 @@ const Layout = ({ children, sidebar }: Props) => {
   );
 };
 
-export default Layout;
+export default PageContainer;
