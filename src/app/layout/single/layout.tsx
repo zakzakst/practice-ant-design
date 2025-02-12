@@ -13,7 +13,7 @@ const Layout = ({ children }: Props) => {
         <div className="sticky top-0 z-10 w-full">
           <LayoutHeader />
         </div>
-        <div className="mx-auto container">
+        <div className="container mx-auto">
           <main className="p-4">{children}</main>
         </div>
         <div className="mt-auto">

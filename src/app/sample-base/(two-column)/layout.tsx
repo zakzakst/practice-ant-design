@@ -13,7 +13,7 @@ const Layout = ({ children, sidebar }: Props) => {
         <div className="sticky top-0 z-10 w-full">
           <Header />
         </div>
-        <div className="mx-auto container grid grid-cols-[200px_1fr]">
+        <div className="container mx-auto grid grid-cols-[200px_1fr]">
           <aside className="p-4">{sidebar}</aside>
           <main className="p-4">{children}</main>
         </div>

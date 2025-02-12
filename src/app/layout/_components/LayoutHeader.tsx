@@ -28,13 +28,13 @@ const HeaderLinks: HeaderLink[] = [
 const LayoutHeader = () => {
   return (
     <header className="bg-primary/80 backdrop-blur-md dark:bg-primary/50">
-      <div className="mx-auto container flex items-center px-4 py-2">
-        <div className="text-primary-foreground font-bold text-lg">
+      <div className="container mx-auto flex items-center px-4 py-2">
+        <div className="text-lg font-bold text-primary-foreground">
           <Link href="/">LOGO</Link>
         </div>
         <div className="grow">
           <nav>
-            <ul className="flex gap-1 justify-end">
+            <ul className="flex justify-end gap-1">
               {HeaderLinks.map((link) => (
                 <li key={link.id}>
                   <Button variant="link" asChild>
