@@ -36,8 +36,6 @@ https://shadcnui-templates.com/all-templates
 - サイト設定
   - https://github.com/dillionverma/llm.report/blob/main/config/site.ts
 - typedoc 聞いてみる
-- markdownlint（next.js でマークダウンファイル読み込んでブログページ表示、みたいなパターンだったら便利？）
-  - https://github.com/noodle-run/noodle/blob/main/.markdownlint.json
 - バックエンドとの連携で setup とか作る？
   - https://github.com/triggerdotdev/trigger.dev/blob/main/package.json#L39
 - https://github.com/topics
@@ -51,6 +49,9 @@ https://shadcnui-templates.com/all-templates
 - 未使用ファイルの検出
   - https://zenn.dev/roboin/articles/3dfc5eba5433ba
   - https://github.com/openstatusHQ/openstatus/blob/main/knip.ts
+- markdownlint（next.js でマークダウンファイル読み込んでブログページ表示、みたいなパターンだったら便利？）
+  - https://github.com/noodle-run/noodle/blob/main/.markdownlint.json
+  - vscode の拡張機能は lint の対象から外すファイルの指定が上手くできなかったので無効にした
 
 ## 使わない
 
