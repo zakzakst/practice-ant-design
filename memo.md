@@ -24,6 +24,34 @@ https://shadcnui-templates.com/all-templates
 - タブ（一応あったが、よくあるスタイルではなかった）：（イメージ： https://bulma.io/documentation/elements/tag/）
 - パネル：（イメージ： https://bulma.io/documentation/components/panel/）
 
+## リポジトリ構築で参考にしたい
+
+- index.ts 作って import の記述シンプルにする
+  - https://github.com/digital-go-jp/design-system-example-components/blob/main/src/components/Accordion/index.ts
+- formatter 聞いてみる（バイオーム）
+  - https://biomejs.dev/ja/
+  - https://github.com/digital-go-jp/design-system-example-components/blob/main/biome.json
+- colors.js と tailwind.config.js で値の管理を一元化
+  - https://github.com/reactjs/react.dev
+- サイト設定
+  - https://github.com/dillionverma/llm.report/blob/main/config/site.ts
+- typedoc 聞いてみる
+- markdownlint（next.js でマークダウンファイル読み込んでブログページ表示、みたいなパターンだったら便利？）
+  - https://github.com/noodle-run/noodle/blob/main/.markdownlint.json
+- バックエンドとの連携で setup とか作る？
+  - https://github.com/triggerdotdev/trigger.dev/blob/main/package.json#L39
+- https://github.com/topics
+
+### 済
+
+- markuplint
+  - https://zenn.dev/chot/articles/bcc178c481a9c2
+- typecheck
+  - https://github.com/noodle-run/noodle/blob/main/package.json#L32C6-L32C15
+- 未使用ファイルの検出
+  - https://zenn.dev/roboin/articles/3dfc5eba5433ba
+  - https://github.com/openstatusHQ/openstatus/blob/main/knip.ts
+
 ## 使わない
 
 https://ant.design/components/overview/
