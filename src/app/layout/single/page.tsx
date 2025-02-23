@@ -34,6 +34,14 @@ import ToastDemo from "./_demos/ToastDemo";
 const Page = () => {
   return (
     <div className="grid grid-cols-1 gap-8">
+      <div className="font-mono">
+        <p>
+          test
+          <br />
+          aaaaa
+        </p>
+        <p className="font-sans">aaaaa</p>
+      </div>
       <div className="grid grid-cols-1 gap-8">
         {/* フォーム */}
         <InputDemo />
