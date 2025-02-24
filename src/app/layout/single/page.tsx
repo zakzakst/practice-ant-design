@@ -41,6 +41,8 @@ const Page = () => {
           aaaaa
         </p>
         <p className="font-sans">aaaaa</p>
+        <p className="text-normal">normal</p>
+        <p className="text-title">title</p>
       </div>
       <div className="grid grid-cols-1 gap-8">
         {/* フォーム */}

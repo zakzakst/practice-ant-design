@@ -97,6 +97,22 @@ const config: Config = {
         sans: [`var(--font-noto-sans-jp)`],
         mono: [`var(--font-noto-sans-mono)`],
       },
+      fontSize: {
+        normal: [
+          "14px",
+          {
+            fontWeight: "400",
+            lineHeight: "1.2",
+            letterSpacing: "0.1",
+          },
+        ],
+        title: [
+          "18px",
+          {
+            fontWeight: "700",
+          },
+        ],
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],
