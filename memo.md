@@ -53,6 +53,10 @@ https://shadcnui-templates.com/all-templates
 - markdownlint（next.js でマークダウンファイル読み込んでブログページ表示、みたいなパターンだったら便利？）
   - https://github.com/noodle-run/noodle/blob/main/.markdownlint.json
   - vscode の拡張機能は lint の対象から外すファイルの指定が上手くできなかったので無効にした
+- tailwind のフォント設定を読む
+  https://github.com/digital-go-jp/tailwind-theme-plugin/blob/develop/src/index.ts#L199
+  https://v2.tailwindcss.com/docs/font-size#providing-a-default-letter-spacing
+  https://qiita.com/tanimoto-hikari/items/b245006d6f0f25e57534
 
 ## 使わない
 
