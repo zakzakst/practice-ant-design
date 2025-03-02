@@ -8,6 +8,7 @@ https://shadcnui-templates.com/all-templates
 
 - テストの本やる
   https://github.com/frontend-testing-book/unittest
+- API 周りのテストまだ消化しきれていない。自分で作成してみる
 - textlint 入れる（ https://ics.media/entry/220404/ ）
 - react hook form 直で利用したフォーム作成（セレクトボックスの項目を API 取得する想定も試してみる）
 - よく使いそうなコンポーネントの tail wind のやつ見つける（なければ自分で作る）
