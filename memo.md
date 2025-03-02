@@ -12,6 +12,8 @@ https://shadcnui-templates.com/all-templates
 - textlint 入れる（ https://ics.media/entry/220404/ ）
 - react hook form 直で利用したフォーム作成（セレクトボックスの項目を API 取得する想定も試してみる）
 - よく使いそうなコンポーネントの tail wind のやつ見つける（なければ自分で作る）
+- next.js への gsap の導入やってみる（参考：https://journey.the-panese.jp/）
+  https://journey.the-panese.jp/_next/static/chunks/app/layout-92e641020a39cae8.js
 
 ## メモ
 
