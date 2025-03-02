@@ -13,3 +13,9 @@ export type Article = {
 export type Articles = {
   articles: Article[];
 };
+
+export type ArticleInput = {
+  tags: string[];
+  title: string;
+  body: string;
+};
