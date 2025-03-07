@@ -7,7 +7,7 @@ import { RegisterDeliveryAddress } from "./RegisterDeliveryAddress";
 export type AddressOption = React.ComponentProps<"option"> & { id: string };
 export type Props = {
   deliveryAddresses?: AddressOption[];
-  onSubmit: (event: React.FormEvent<HTMLFormElement>) => void;
+  onSubmit?: (event: React.FormEvent<HTMLFormElement>) => void;
 };
 
 export const Form = ({ deliveryAddresses, onSubmit }: Props) => {
