@@ -13,7 +13,8 @@
     "markdownlint": "markdownlint \"./src/app/posts/contents/*.md\"",
     "typecheck": "tsc",
     "knip": "knip",
-    "test": "jest"
+    "test": "jest",
+    "test:update-snapshot": "jest --updateSnapshot"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
