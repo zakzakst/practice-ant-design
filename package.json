@@ -14,7 +14,8 @@
     "typecheck": "tsc",
     "knip": "knip",
     "test": "jest",
-    "test:update-snapshot": "jest --updateSnapshot"
+    "test:update-snapshot": "jest --updateSnapshot",
+    "test:target-file-example": "jest \"./__tests__/05/03/Form.test.tsx\" -t \"logRoles: レンダリング結果からロール・アクセシブルネームを確認\""
   },
   "dependencies": {
     "@hookform/resolvers": "^3.10.0",
