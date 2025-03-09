@@ -22,6 +22,7 @@ const config: Config = {
   //     lines: 100,
   //   },
   // },
+  reporters: ["default", "jest-html-reporters"],
 };
 
 export default createJestConfig(config);
