@@ -28,7 +28,7 @@ const SidebarLinks: SidebarLink[] = [
 const LayoutSidebar = () => {
   return (
     <aside>
-      <ul className="w-48 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-lg dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+      <ul className="w-48 rounded-lg border border-gray-200 bg-white text-sm font-medium text-gray-900 dark:border-gray-600 dark:bg-gray-700 dark:text-white">
         {SidebarLinks.map((link, i) => (
           <li key={link.id}>
             <Link

@@ -19,23 +19,23 @@ const ToggleDemo = () => {
               console.log(e);
             }}
           >
-            <Bold className="h-4 w-4" />
+            <Bold className="size-4" />
           </Toggle>
           <Toggle variant="outline" aria-label="Toggle italic" disabled>
-            <Italic className="h-4 w-4" />
+            <Italic className="size-4" />
           </Toggle>
           <Toggle aria-label="Toggle italic">
             <Italic />
             Italic
           </Toggle>
           <Toggle size="sm" aria-label="Toggle italic">
-            <Italic className="h-4 w-4" />
+            <Italic className="size-4" />
           </Toggle>
           <Toggle size="lg" aria-label="Toggle italic">
-            <Italic className="h-4 w-4" />
+            <Italic className="size-4" />
           </Toggle>
           <Toggle aria-label="Toggle underline" disabled>
-            <Underline className="h-4 w-4" />
+            <Underline className="size-4" />
           </Toggle>
         </div>
       </DesignBox>

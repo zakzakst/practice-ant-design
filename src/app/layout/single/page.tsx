@@ -34,7 +34,17 @@ import ToastDemo from "./_demos/ToastDemo";
 const Page = () => {
   return (
     <div className="grid grid-cols-1 gap-8">
-      <div className="grid grid-cols-1 gap-8 hidden">
+      <div className="font-mono">
+        <p>
+          test
+          <br />
+          aaaaa
+        </p>
+        <p className="font-sans">aaaaa</p>
+        <p className="text-normal">normal</p>
+        <p className="text-title">title</p>
+      </div>
+      <div className="grid grid-cols-1 gap-8">
         {/* フォーム */}
         <InputDemo />
         <LabelDemo />
@@ -46,7 +56,7 @@ const Page = () => {
         <SliderDemo />
         <DatePickerDemo />
       </div>
-      <div className="grid grid-cols-1 gap-8 hidden">
+      <div className="grid grid-cols-1 gap-8">
         <AccordionDemo />
         <AlertDemo />
         <AspectRatioDemo />
