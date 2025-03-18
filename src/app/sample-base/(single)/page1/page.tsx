@@ -1,4 +1,11 @@
 // http://localhost:3000/practice-ant-design/sample-base/page1
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "タイトル",
+  description: "概要",
+};
+
 const Page = () => {
   return (
     <div>
