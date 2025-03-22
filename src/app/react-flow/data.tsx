@@ -1,22 +1,30 @@
-import {
-  Node,
-  Edge,
-  // Handle,
-  // Position,
-  // NodeProps,
-} from "@xyflow/react";
+import { Node, Edge, Handle, Position, NodeProps } from "@xyflow/react";
 
-// type TestNode = Node<{ id: number }, 'number'>
+type TestNode = Node<{ id: number }, "number">;
 
-// export const TestNodeType = ({id}: NodeProps<TestNode>) => {
-//   return <div>A special number: {data.number}</div>
-// }
+export const TestNodeType = ({ id }: NodeProps<TestNode>) => {
+  return (
+    <>
+      <Handle type="target" position={Position.Right} />
+      <div>A special number: {id}</div>
+    </>
+  );
+};
+
+export const NodeTypes = {
+  testNodeType: TestNodeType,
+};
 
 export const Nodes: Node[] = [
   { id: "1", position: { x: 0, y: 0 }, data: { label: "1" } },
   { id: "2", position: { x: 0, y: 100 }, data: { label: "2" } },
   { id: "3", position: { x: 200, y: 100 }, data: { label: "3" } },
-  { id: "4", position: { x: 200, y: 0 }, data: { label: "4" } },
+  {
+    id: "4",
+    position: { x: 200, y: 0 },
+    data: { label: "4" },
+    type: "testNodeType",
+  },
 ];
 
 export const Edges: Edge[] = [
