@@ -1,3 +1,13 @@
+.handle {
+  width: 1px;
+  height: 1px;
+  border: 0;
+  min-width: 1px;
+  min-height: 1px;
+  visibility: hidden;
+  cursor: default;
+}
+
 .container {
   position: relative;
   border: 1px solid #000;
@@ -24,4 +34,34 @@
   display: grid;
   place-items: center;
   text-align: center;
+}
+
+.edge {
+  position: relative;
+  stroke-width: 3;
+  stroke-linecap: round;
+  &[data-type="red"] {
+    stroke: #f00;
+  }
+  &[data-type="blue"] {
+    stroke: #00f;
+  }
+}
+
+.number {
+  position: absolute;
+  color: #fff;
+  font-size: 12px;
+  min-width: 24px;
+  height: 24px;
+  display: grid;
+  place-items: center;
+  border-radius: 100vmax;
+  transform: translate(calc(var(--centerX) - 50%), calc(var(--centerY) - 50%));
+  &[data-type="red"] {
+    background-color: #f00;
+  }
+  &[data-type="blue"] {
+    background-color: #00f;
+  }
 }
