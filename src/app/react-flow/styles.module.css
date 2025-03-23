@@ -1,0 +1,27 @@
+.container {
+  position: relative;
+  border: 1px solid #000;
+  background-color: #fff;
+  border-radius: 4px;
+  padding: 18px 8px 8px;
+  width: 160px;
+}
+
+.type {
+  position: absolute;
+  height: 20px;
+  top: -10px;
+  inset-inline: 0;
+  background-color: #000;
+  color: #fff;
+  margin: auto;
+  width: fit-content;
+  border-radius: 100vmax;
+}
+
+.name {
+  height: 50px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+}
