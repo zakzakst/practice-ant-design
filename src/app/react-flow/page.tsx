@@ -8,7 +8,7 @@ import {
 import "@xyflow/react/dist/style.css";
 // import { Nodes, Edges, NodeTypes } from "./data";
 // import { Nodes, Edges, CustomNode, CustomEdge } from "./data2";
-import { MyNodes, MyEdges, myNodeTypes } from "./MyData";
+import { MyNodes, MyEdges, myNodeTypes, myEdgeTypes } from "./MyData";
 
 // const nodeTypes = {
 //   custom: CustomNode, // keyにNodeType名, valueにカスタムノードコンポーネント
@@ -55,10 +55,10 @@ const Page = () => {
   return (
     <div>
       <p>react flow</p>
-      <div style={{ width: "50vw", height: "50vh" }}>
+      <div style={{ width: "100%", height: "50vh" }}>
         <ReactFlow
           nodeTypes={myNodeTypes}
-          // edgeTypes={edgeTypes}
+          edgeTypes={myEdgeTypes}
           nodes={MyNodes}
           edges={MyEdges}
           fitView
