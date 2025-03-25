@@ -1,3 +1,6 @@
+https://github.com/mswjs/msw/issues/1877
+https://qiita.com/t-daiki96/items/9f2da1abb20bc5e1c7db
+
 shadcn/ui（シャドシーエヌ/ユーアイ）
 https://ui.shadcn.com/
 https://lucide.dev/guide/packages/lucide-react
