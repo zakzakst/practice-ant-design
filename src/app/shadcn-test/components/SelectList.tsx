@@ -18,9 +18,15 @@ import type { Item } from "./Combobox";
 type Props = {
   listItems: Item[];
   onChangeSelectedItems: (items: Item[]) => void;
+  onChangeOpen?: (e: boolean) => void;
 };
 
-export const SelectList = ({ listItems, onChangeSelectedItems }: Props) => {
+export const SelectList = ({
+  listItems,
+  onChangeSelectedItems,
+  onChangeOpen,
+}: Props) => {
+  const [isOpenDialog, setIsOpenDialog] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [selectedItems, setSelectedItems] = useState<Item[]>([]);
 
@@ -31,6 +37,11 @@ export const SelectList = ({ listItems, onChangeSelectedItems }: Props) => {
     return targetItems;
   }, [listItems, selectedItems]);
 
+  const onOpenChange = (e: boolean) => {
+    setIsOpenDialog(e);
+    if (onChangeOpen) onChangeOpen(e);
+  };
+
   const onClickAdd = () => {
     const targetItem = listItems.find((item) => item.value === inputValue);
     if (!targetItem) return;
@@ -38,6 +49,7 @@ export const SelectList = ({ listItems, onChangeSelectedItems }: Props) => {
     setSelectedItems(newSelectedItems);
     setInputValue("");
     onChangeSelectedItems(newSelectedItems);
+    setIsOpenDialog(false);
   };
 
   const onClickDelete = (deleteItem: Item) => {
@@ -57,12 +69,12 @@ export const SelectList = ({ listItems, onChangeSelectedItems }: Props) => {
           {selectedItems.map((item) => (
             <li key={item.value}>
               {item.label}
-              <span onClick={() => onClickDelete(item)}>x</span>
+              <span onClick={() => onClickDelete(item)}>（x）</span>
             </li>
           ))}
         </ul>
       )}
-      <Dialog>
+      <Dialog open={isOpenDialog} onOpenChange={onOpenChange}>
         <DialogTrigger asChild>
           <Button>項目を追加</Button>
         </DialogTrigger>
@@ -72,8 +84,8 @@ export const SelectList = ({ listItems, onChangeSelectedItems }: Props) => {
             <DialogDescription>補足事項を選択</DialogDescription>
           </DialogHeader>
           <div className="flex items-center space-x-2">
-            {/* TODO: Comboboxの選択肢を更新できるようにする */}
             <Combobox
+              value={inputValue}
               items={selectableItems}
               placeholder="項目を選択してください"
               emptyMessage="選択肢がありません"
