@@ -27,9 +27,15 @@ type Props = {
   items: Item[];
   placeholder: string;
   emptyMessage: string;
+  onChangeValue: (value: string) => void;
 };
 
-export const Combobox = ({ items, placeholder, emptyMessage }: Props) => {
+export const Combobox = ({
+  items,
+  placeholder,
+  emptyMessage,
+  onChangeValue,
+}: Props) => {
   const [open, setOpen] = useState(false);
   const [value, setValue] = useState("");
 
@@ -60,6 +66,7 @@ export const Combobox = ({ items, placeholder, emptyMessage }: Props) => {
                   value={item.value}
                   onSelect={(currentValue) => {
                     setValue(currentValue === value ? "" : currentValue);
+                    onChangeValue(currentValue);
                     setOpen(false);
                   }}
                 >
