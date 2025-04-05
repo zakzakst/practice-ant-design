@@ -1,9 +1,9 @@
 "use client";
 
-import { useState } from "react";
+// import { useState } from "react";
 // import { Combobox } from "./components/Combobox";
 import { SelectList } from "./components/SelectList";
-import type { Item as ComboboxItem } from "./components/Combobox";
+// import type { Item as ComboboxItem } from "./components/Combobox";
 
 const frameworkItems = [
   {
@@ -30,14 +30,14 @@ const frameworkItems = [
 
 const Page = () => {
   // const [frameworks, setFrameworks] = useState<ComboboxItem[]>([]);
-  const [selectedItems, setSelectedItems] = useState<ComboboxItem[]>([]);
+  // const [selectedItems, setSelectedItems] = useState<ComboboxItem[]>([]);
 
-  const onAddSelectedItem = (item: ComboboxItem) => {
-    setSelectedItems([...selectedItems, item]);
-  };
-  const onDeleteSelectedItem = (item: ComboboxItem) => {
-    console.log(item);
-  };
+  // const onAddSelectedItem = (item: ComboboxItem) => {
+  //   setSelectedItems([...selectedItems, item]);
+  // };
+  // const onDeleteSelectedItem = (item: ComboboxItem) => {
+  //   console.log(item);
+  // };
   return (
     <div>
       <h2>hogehoge</h2>
@@ -51,9 +51,10 @@ const Page = () => {
         <div>
           <SelectList
             listItems={frameworkItems}
-            selectedItems={selectedItems}
-            onAddSelectedItem={onAddSelectedItem}
-            onDeleteSelectedItem={onDeleteSelectedItem}
+            // selectedItems={selectedItems}
+            // onAddSelectedItem={onAddSelectedItem}
+            // onDeleteSelectedItem={onDeleteSelectedItem}
+            onChangeSelectedItems={(items) => console.log(items)}
           />
         </div>
       </div>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -17,38 +17,47 @@ import type { Item } from "./Combobox";
 
 type Props = {
   listItems: Item[];
-  selectedItems: Item[];
-  onAddSelectedItem: (item: Item) => void;
-  onDeleteSelectedItem: (item: Item) => void;
+  onChangeSelectedItems: (items: Item[]) => void;
 };
 
-export const SelectList = ({
-  listItems,
-  selectedItems,
-  onDeleteSelectedItem,
-  onAddSelectedItem,
-}: Props) => {
-  // 1. モーダルを開く
-  // 2. コンボボックスの選択肢が設定される
-  // 3. 「追加」ボタンをクリックしたら、選択中の項目がリストに追加されてモーダルが閉じる
-  // const [isOpen, setIsOpen] = useState(false);
-  // TODO: 追加済の項目はlistに表示しない
-  const [selectedValue, setSelectedValue] = useState("");
+export const SelectList = ({ listItems, onChangeSelectedItems }: Props) => {
+  const [inputValue, setInputValue] = useState("");
+  const [selectedItems, setSelectedItems] = useState<Item[]>([]);
+
+  const selectableItems = useMemo<Item[]>(() => {
+    const targetItems = listItems.filter(
+      (item) => !selectedItems.includes(item)
+    );
+    return targetItems;
+  }, [listItems, selectedItems]);
+
   const onClickAdd = () => {
-    const targetItem = listItems.find((item) => item.value === selectedValue);
-    if (targetItem) {
-      onAddSelectedItem(targetItem);
-    }
+    const targetItem = listItems.find((item) => item.value === inputValue);
+    if (!targetItem) return;
+    const newSelectedItems = [...selectedItems, targetItem];
+    setSelectedItems(newSelectedItems);
+    setInputValue("");
+    onChangeSelectedItems(newSelectedItems);
+  };
+
+  const onClickDelete = (deleteItem: Item) => {
+    const targetItemIndex = listItems.indexOf(deleteItem);
+    if (targetItemIndex === -1) return;
+    const newSelectedItems = selectedItems.filter(
+      (item) => item !== deleteItem
+    );
+    setSelectedItems(newSelectedItems);
+    onChangeSelectedItems(newSelectedItems);
   };
 
   return (
     <>
-      {selectedItems.length && (
+      {Boolean(selectedItems.length) && (
         <ul>
           {selectedItems.map((item) => (
             <li key={item.value}>
               {item.label}
-              <span onClick={() => onDeleteSelectedItem(item)}>x</span>
+              <span onClick={() => onClickDelete(item)}>x</span>
             </li>
           ))}
         </ul>
@@ -63,11 +72,12 @@ export const SelectList = ({
             <DialogDescription>補足事項を選択</DialogDescription>
           </DialogHeader>
           <div className="flex items-center space-x-2">
+            {/* TODO: Comboboxの選択肢を更新できるようにする */}
             <Combobox
-              items={listItems}
+              items={selectableItems}
               placeholder="項目を選択してください"
               emptyMessage="選択肢がありません"
-              onChangeValue={setSelectedValue}
+              onChangeValue={setInputValue}
             />
           </div>
           <DialogFooter className="sm:justify-start">
