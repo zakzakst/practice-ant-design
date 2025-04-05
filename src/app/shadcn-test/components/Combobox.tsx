@@ -24,6 +24,7 @@ export type Item = {
 };
 
 type Props = {
+  value: string;
   items: Item[];
   placeholder: string;
   emptyMessage: string;
@@ -31,13 +32,13 @@ type Props = {
 };
 
 export const Combobox = ({
+  value,
   items,
   placeholder,
   emptyMessage,
   onChangeValue,
 }: Props) => {
   const [open, setOpen] = useState(false);
-  const [value, setValue] = useState("");
 
   return (
     <Popover open={open} onOpenChange={setOpen}>
@@ -65,8 +66,7 @@ export const Combobox = ({
                   key={item.value}
                   value={item.value}
                   onSelect={(currentValue) => {
-                    setValue(currentValue === value ? "" : currentValue);
-                    onChangeValue(currentValue);
+                    onChangeValue(currentValue === value ? "" : currentValue);
                     setOpen(false);
                   }}
                 >
