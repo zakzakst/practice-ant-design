@@ -96,7 +96,9 @@ export const SelectList = ({
             <DialogClose asChild>
               <Button variant="secondary">キャンセル</Button>
             </DialogClose>
-            <Button onClick={() => onClickAdd()}>追加</Button>
+            <Button onClick={() => onClickAdd()} disabled={inputValue === ""}>
+              追加
+            </Button>
           </DialogFooter>
         </DialogContent>
       </Dialog>
