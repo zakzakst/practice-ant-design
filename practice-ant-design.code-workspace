@@ -14,6 +14,12 @@
     //   //   "file": "code-style.md" // import instructions from file `code-style.md`
     //   // }
     // ]
-    "liveServer.settings.root": "/out"
+    "editor.tabSize": 2,
+    "liveServer.settings.root": "/out",
+    "github.copilot.enable": {
+      "*": false,
+      "typescript": false,
+      "yaml": false
+    }
   }
 }
