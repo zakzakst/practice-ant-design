@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
+  // FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -38,26 +38,37 @@ const Page = () => {
   return (
     <div>
       <Form {...form}>
-        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
-          <FormField
-            control={form.control}
-            name="username"
-            render={({ field }) => (
-              <FormItem>
+        <FormField
+          control={form.control}
+          name="username"
+          render={({ field }) => (
+            <FormItem>
+              <div className="grid grid-cols-[max-content_1fr] items-center gap-2">
                 <FormLabel>Username</FormLabel>
                 <FormControl>
-                  <Input placeholder="shadcn" {...field} />
+                  <Input placeholder="shadcn" className="mt-0" {...field} />
                 </FormControl>
-                <FormDescription>
+              </div>
+              {/* <FormDescription>
                   This is your public display name.
-                </FormDescription>
-                <FormMessage />
-              </FormItem>
-            )}
-          />
-          <Button type="submit">Submit</Button>
-        </form>
+                </FormDescription> */}
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        {/* <Button type="submit" onClick={form.handleSubmit(onSubmit)}>
+          Submit
+        </Button> */}
+        {/* <form className="space-y-2">
+        </form> */}
       </Form>
+      <Button
+        type="submit"
+        onClick={form.handleSubmit(onSubmit)}
+        disabled={!form.formState.isValid}
+      >
+        Submit
+      </Button>
     </div>
   );
 };
