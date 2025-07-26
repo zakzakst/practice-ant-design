@@ -50,8 +50,8 @@ const Page = () => {
                 </FormControl>
               </div>
               {/* <FormDescription>
-                  This is your public display name.
-                </FormDescription> */}
+                This is your public display name.
+              </FormDescription> */}
               <FormMessage />
             </FormItem>
           )}
