@@ -7,8 +7,9 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { Input } from "@/components/ui/input";
 
 const userFormSchema = z.object({
-  name: z.string().min(1, "名前を入力してください"),
-  age: z.coerce.number(),
+  name: z.string().min(1, "入力必須項目です"),
+  age: z.coerce.number().min(1, "入力必須項目です"),
+  // .refine((val) => !isNaN(Number(val)), { message: "入力必須項目です" }),
 });
 
 type UserFormValues = z.infer<typeof userFormSchema>;
@@ -19,8 +20,8 @@ const UserFormDefaultValues: UserFormValues = {
 };
 
 const formSchema = z.object({
-  eventId: z.string(),
-  users: z.array(userFormSchema),
+  eventId: z.string().min(1, "入力必須項目です"),
+  users: z.array(userFormSchema).min(1, "一人以上のユーザーを登録してください"),
 });
 
 type FormValues = z.infer<typeof formSchema>;
@@ -43,6 +44,9 @@ const UserForm = ({
   } = useForm<UserFormValues>({
     resolver: zodResolver(userFormSchema),
     defaultValues: UserFormDefaultValues,
+    // defaultValues: {
+    //   name: "",
+    // },
   });
 
   const handleFormSubmit = (values: UserFormValues) => {
@@ -64,6 +68,7 @@ const UserForm = ({
       <Input id="name" {...register("name")} />
       {errors.name && <p>{errors.name.message}</p>}
       <Input id="age" type="number" {...register("age")} />
+      {errors.age && <p>{errors.age.message}</p>}
       <button onClick={handleSubmit(handleFormSubmit)}>
         ユーザーフォーム実行
       </button>
@@ -77,7 +82,8 @@ const Page = () => {
     handleSubmit,
     setValue,
     watch,
-    // formState: { errors },
+    trigger,
+    formState: { errors },
   } = useForm<FormValues>({
     resolver: zodResolver(formSchema),
     defaultValues: FormDefaultValues,
@@ -87,8 +93,11 @@ const Page = () => {
 
   const onSubmitUserForm = (values: UserFormValues) => {
     // const users = getValues("users");
+    // バリデーションを実行するには trigger メソッドを使います
+    // 例: trigger("users")
     console.log(users, values);
     setValue("users", [...users, values]);
+    trigger("users");
   };
 
   const onSubmit = (values: FormValues) => {
@@ -98,7 +107,9 @@ const Page = () => {
   return (
     <div>
       <Input id="eventId" {...register("eventId")} />
+      {errors.eventId && <p>{errors.eventId.message}</p>}
       <UserForm onSubmit={onSubmitUserForm} />
+      {errors.users && <p>{errors.users.message}</p>}
       <ul>
         {users.map((user, index) => (
           <li key={index}>
