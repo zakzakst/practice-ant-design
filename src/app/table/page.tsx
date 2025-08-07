@@ -54,7 +54,7 @@ const Page = () => {
     <Table className="w-max">
       <TableHeader>
         <TableRow ref={headRowRef}>
-          <TableHead className="sticky left-0 top-0 bg-white z-10"></TableHead>
+          <TableHead className="sticky left-0 top-0 z-10 bg-white"></TableHead>
           {ItemTypes.map((itemType) => (
             <TableHead
               key={itemType.id}
