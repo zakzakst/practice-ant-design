@@ -1,1 +1,22 @@
-// https://qiita.com/shimajiri/items/02f8b5572d7e15a79495
+"use client";
+
+import Lottie, { Options } from "react-lottie";
+import emotionsData from "./prats/emotions.json";
+
+const Page = () => {
+  const defaultOptions: Options = {
+    loop: true,
+    autoplay: true,
+    animationData: emotionsData,
+    rendererSettings: {
+      preserveAspectRatio: "xMidYMid slice",
+    },
+  };
+  return (
+    <div>
+      <Lottie options={defaultOptions} height={400} width={400} />
+    </div>
+  );
+};
+
+export default Page;
