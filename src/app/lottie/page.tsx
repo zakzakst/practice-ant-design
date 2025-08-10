@@ -1,20 +1,12 @@
 "use client";
 
-import Lottie, { Options } from "react-lottie";
-import emotionsData from "./prats/emotions.json";
+// import { Emotions } from "./prats/Emotions1";
+import { Emotions } from "./prats/Emotions2";
 
 const Page = () => {
-  const defaultOptions: Options = {
-    loop: true,
-    autoplay: true,
-    animationData: emotionsData,
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
   return (
     <div>
-      <Lottie options={defaultOptions} height={400} width={400} />
+      <Emotions />
     </div>
   );
 };
