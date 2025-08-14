@@ -18,3 +18,5 @@ export const userFormSchema = z.object({
   age: z.number().min(0, "年齢は0以上で入力してください"),
   job: z.enum(["engineer", "designer", "manager"]),
 });
+
+export type userFormValues = z.infer<typeof userFormSchema>;
