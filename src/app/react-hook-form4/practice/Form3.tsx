@@ -6,13 +6,18 @@ import { Button } from "@/components/ui/button";
 
 // schema
 import { z } from "zod";
+const addressSchema = z.object({
+  postalCode: z.string().min(1, "郵便番号は必須です"),
+  city: z.string().min(1, "市区町村は必須です"),
+});
 const formSchema = z.object({
   addresses: z
     .array(
-      z.object({
-        postalCode: z.string().min(1, "郵便番号は必須です"),
-        city: z.string().min(1, "市区町村は必須です"),
-      })
+      addressSchema
+      // z.object({
+      //   postalCode: z.string().min(1, "郵便番号は必須です"),
+      //   city: z.string().min(1, "市区町村は必須です"),
+      // })
     )
     .min(1, "住所は1つ以上必要です"),
 });
