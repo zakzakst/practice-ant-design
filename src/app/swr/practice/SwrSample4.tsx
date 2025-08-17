@@ -3,6 +3,7 @@ import useSWRMutation from "swr/mutation";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm, Controller } from "react-hook-form";
+import axios, { isAxiosError } from "axios";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -33,7 +34,7 @@ class SwrError extends Error {
   status?: number;
 }
 
-const IsUseErrorMock = false;
+const IsUseErrorMock = true;
 const IsUseTodoMock = false;
 
 const PostTodoResponseMock: PostTodoResponse = {
@@ -46,23 +47,24 @@ const PostTodoResponseMock: PostTodoResponse = {
 const postTodoFetcher = async (
   url: string,
   { arg }: { arg: PostTodoRequest }
-): Promise<PostTodoResponse> => {
+): Promise<PostTodoResponse | undefined> => {
   if (IsUseTodoMock) {
     sleep(1000);
     return PostTodoResponseMock;
   }
-  const res = await fetch(url, {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(arg),
-  });
-  if (!res.ok) {
-    const error = new Error() as SwrError;
-    error.data = await res.json();
-    error.status = res.status;
-    throw error;
+  try {
+    const res = await axios.post(url, arg, {
+      headers: { "Content-Type": "application/json" },
+    });
+    return res.data;
+  } catch (e) {
+    if (isAxiosError(e)) {
+      const error = new Error() as SwrError;
+      error.data = e.response?.data;
+      error.status = e.response?.status;
+      throw error;
+    }
   }
-  return res.json();
 };
 
 const usePostTodo = () => {
@@ -104,7 +106,7 @@ export const SwrSample = () => {
   };
   return (
     <div>
-      <h1>fetch POST Todo</h1>
+      <h1>axios POST Todo</h1>
       <Input {...register("todo")} />
       {formErrors.todo && <p>{formErrors.todo.message}</p>}
       <div className="flex items-center gap-2">
