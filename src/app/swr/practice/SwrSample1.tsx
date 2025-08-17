@@ -2,7 +2,7 @@
 import useSWR from "swr";
 import { useState, useMemo } from "react";
 import { Input } from "@/components/ui/input";
-import { sleep } from "./utils";
+import { sleep, getQueryStr } from "./utils";
 
 // NOTE: Todoの型は https://dummyjson.com/todos のレスポンスから設定
 type Todo = {
@@ -64,19 +64,7 @@ const getTodoFetcher = async ({
     sleep(1000);
     return GetTodoResponseMock;
   }
-  // undefinedの値を除外
-  const filteredParams = Object.entries(params).filter(
-    ([, value]) => value !== undefined
-  );
-  const query = new URLSearchParams(
-    filteredParams.reduce((acc, [key, value]) => {
-      acc[key] = String(value);
-      return acc;
-    }, {} as Record<string, string>)
-  );
-  const queryStr = Array.from(query.entries()).length
-    ? `?${query.toString()}`
-    : "";
+  const queryStr = getQueryStr(params);
   const res = await fetch(`${url}${queryStr}`);
   // 参考：https://swr.vercel.app/ja/docs/error-handling
   if (!res.ok) {
