@@ -1,6 +1,7 @@
 "use client";
 import useSWR from "swr";
 import { useState, useMemo } from "react";
+import axios, { isAxiosError } from "axios";
 import { Input } from "@/components/ui/input";
 import { sleep } from "./utils";
 
@@ -30,7 +31,7 @@ class SwrError extends Error {
   status?: number;
 }
 
-const IsUseErrorMock = false;
+const IsUseErrorMock = true;
 const IsUseTodoMock = false;
 
 const GetTodoResponseMock: GetTodoResponse = {
@@ -59,33 +60,22 @@ const getTodoFetcher = async ({
 }: {
   url: string;
   params: GetTodoParams;
-}): Promise<GetTodoResponse> => {
+}): Promise<GetTodoResponse | undefined> => {
   if (IsUseTodoMock) {
     sleep(1000);
     return GetTodoResponseMock;
   }
-  // undefinedの値を除外
-  const filteredParams = Object.entries(params).filter(
-    ([, value]) => value !== undefined
-  );
-  const query = new URLSearchParams(
-    filteredParams.reduce((acc, [key, value]) => {
-      acc[key] = String(value);
-      return acc;
-    }, {} as Record<string, string>)
-  );
-  const queryStr = Array.from(query.entries()).length
-    ? `?${query.toString()}`
-    : "";
-  const res = await fetch(`${url}${queryStr}`);
-  // 参考：https://swr.vercel.app/ja/docs/error-handling
-  if (!res.ok) {
-    const error = new Error() as SwrError;
-    error.data = await res.json();
-    error.status = res.status;
-    throw error;
+  try {
+    const res = await axios.get(url, { params });
+    return res.data;
+  } catch (e) {
+    if (isAxiosError(e)) {
+      const error = new Error() as SwrError;
+      error.data = e.response?.data;
+      error.status = e.response?.status;
+      throw error;
+    }
   }
-  return res.json();
 };
 
 const useGetTodo = (params: GetTodoParams) => {
@@ -111,7 +101,7 @@ export const SwrSample = () => {
   const { data, error } = useGetTodo({ limit: 5, skip });
   return (
     <div>
-      <h1>fetch GET Todo</h1>
+      <h1>axios GET Todo</h1>
       <Input
         type="number"
         min={1}
