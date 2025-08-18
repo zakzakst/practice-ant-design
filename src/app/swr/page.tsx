@@ -4,10 +4,8 @@
 // import { SwrSample } from "./practice/SwrSample4";
 // import { SwrSample } from "./practice/SwrSample5";
 // import { SwrSample } from "./practice/SwrSample6";
-import { SwrSample } from "./practice/SwrSample7";
-// TODO: GET以外のメソッドもあるので下記利用してサンプル作る
-// - https://dummyjson.com/docs/todos#todos-update
-// - https://dummyjson.com/docs/todos#todos-delete
+// import { SwrSample } from "./practice/SwrSample7";
+import { SwrSample } from "./practice/SwrSample8";
 
 const Page = () => {
   return (

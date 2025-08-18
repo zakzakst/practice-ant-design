@@ -1,5 +1,6 @@
 "use client";
 import useSWRMutation from "swr/mutation";
+import axios, { isAxiosError } from "axios";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -36,21 +37,22 @@ const DeleteTodoResponseMock: DeleteTodoResponse = {
 
 const deleteTodoFetcher = async (
   url: string
-): Promise<DeleteTodoResponse> => {
+): Promise<DeleteTodoResponse | undefined> => {
   if (IsUseTodoMock) {
     sleep(1000);
     return DeleteTodoResponseMock;
   }
-  const res = await fetch(url, {
-    method: 'DELETE',
-  })
-  if (!res.ok) {
-    const error = new Error() as SwrError;
-    error.data = await res.json();
-    error.status = res.status;
-    throw error;
+  try {
+    const res = await axios.delete(url);
+    return res.data;
+  } catch (e) {
+    if (isAxiosError(e)) {
+      const error = new Error() as SwrError;
+      error.data = e.response?.data;
+      error.status = e.response?.status;
+      throw error;
+    }
   }
-  return res.json()
 }
 
 const useDeleteTodo = (id?: number) => {
@@ -78,7 +80,7 @@ export const SwrSample = () => {
   }
   return (
     <div>
-      <h1>fetch DELETE Todo</h1>
+      <h1>axios DELETE Todo</h1>
       <Input
         type="number"
         min={1}
