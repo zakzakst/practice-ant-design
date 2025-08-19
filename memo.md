@@ -1,3 +1,21 @@
+下記のパターン使える場面結構ありそうだから覚えておく
+
+```ts
+type FormValue = {
+  name: string;
+  email: string;
+};
+
+type FormSubmitValue = FormValue & {
+  id: string;
+};
+
+const onSubmit = (value: FormSubmitValue) => {
+  const { id, ...rest } = value;
+  // idをPUTのidに使い、restをリクエストボディに設定する
+};
+```
+
 https://zenn.dev/spacemarket/articles/f0fd5dc2ab54a2
 https://zenn.dev/dev_commune/articles/55a4ad785e233e
 
