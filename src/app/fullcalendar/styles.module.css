@@ -1,0 +1,9 @@
+.module {
+  color: red;
+  & :global(.fc) {
+    /* background-color: blue; */
+  }
+  & :global(.fc-daygrid-day-events) {
+    margin-bottom: 0 !important;
+  }
+}
