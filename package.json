@@ -20,6 +20,9 @@
     "test:target-file-example": "jest \"./__tests__/05/03/Form.test.tsx\" -t \"logRoles: レンダリング結果からロール・アクセシブルネームを確認\""
   },
   "dependencies": {
+    "@fullcalendar/core": "^6.1.19",
+    "@fullcalendar/daygrid": "^6.1.19",
+    "@fullcalendar/react": "^6.1.19",
     "@hookform/resolvers": "^3.10.0",
     "@radix-ui/react-accordion": "^1.2.3",
     "@radix-ui/react-alert-dialog": "^1.1.6",
@@ -58,6 +61,7 @@
     "lucide-react": "^0.474.0",
     "next": "14.2.23",
     "react": "^18",
+    "react-calendar": "^6.0.0",
     "react-day-picker": "^8.10.1",
     "react-dom": "^18",
     "react-hook-form": "^7.54.2",

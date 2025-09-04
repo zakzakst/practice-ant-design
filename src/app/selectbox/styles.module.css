@@ -1,0 +1,31 @@
+.module {
+  display: block;
+  width: fit-content;
+  border: 1px solid #cf256d;
+  border-radius: 8px;
+  padding: 8px;
+  appearance: base-select;
+}
+.module::picker(select) {
+  border-color: #cf256d;
+  border-radius: 8px;
+  /* margin: 8px 0; */
+  box-shadow: 4px 4px #ff67b3;
+  /* アニメーションも設定できる */
+  /* transition: scale 0.2s; */
+  appearance: base-select;
+}
+.module::picker-icon {
+  display: none;
+}
+/* .module::picker(select):hover {
+  scale: 1.05;
+} */
+
+.option {
+  padding: 8px;
+}
+
+.note {
+  color: #f00;
+}
