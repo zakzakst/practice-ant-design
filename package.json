@@ -21,6 +21,7 @@
     "orval": "orval"
   },
   "dependencies": {
+    "@faker-js/faker": "^10.0.0",
     "@fullcalendar/core": "^6.1.19",
     "@fullcalendar/daygrid": "^6.1.19",
     "@fullcalendar/react": "^6.1.19",
