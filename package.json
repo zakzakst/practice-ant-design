@@ -17,7 +17,8 @@
     "test:update-snapshot": "jest --updateSnapshot",
     "test:coverage": "jest --testMatch \"**/__tests__/06/*.test.{ts,tsx}\" --coverage",
     "test:reporters": "jest --testMatch \"**/__tests__/06/*.test.{ts,tsx}\" --reporters=default --reporters=jest-html-reporters",
-    "test:target-file-example": "jest \"./__tests__/05/03/Form.test.tsx\" -t \"logRoles: レンダリング結果からロール・アクセシブルネームを確認\""
+    "test:target-file-example": "jest \"./__tests__/05/03/Form.test.tsx\" -t \"logRoles: レンダリング結果からロール・アクセシブルネームを確認\"",
+    "orval": "orval"
   },
   "dependencies": {
     "@fullcalendar/core": "^6.1.19",
@@ -90,6 +91,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "ajv": "^8.17.1",
     "eslint": "^8",
     "eslint-config-next": "14.2.23",
     "eslint-plugin-import": "^2.31.0",
@@ -103,6 +105,7 @@
     "markdownlint-cli": "^0.44.0",
     "markuplint": "^4.11.6",
     "msw": "^2.7.3",
+    "orval": "^7.11.2",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
     "ts-jest": "^29.2.6",
