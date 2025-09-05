@@ -5,16 +5,24 @@ import Konva from "konva";
 import { Stage, Layer, Rect, Circle, Transformer } from "react-konva";
 import type { Transformer as TransformerType } from "konva/lib/shapes/Transformer";
 
-type Shape = {
-  id: number;
-  type: "rect" | "circle";
-  x: number;
-  y: number;
-  width: number;
-  height: number;
-  radius?: number;
-  fill: string;
-};
+type Shape =
+  | {
+      id: number;
+      type: "rect";
+      x: number;
+      y: number;
+      width: number;
+      height: number;
+      fill: string;
+    }
+  | {
+      id: number;
+      type: "circle";
+      x: number;
+      y: number;
+      radius: number;
+      fill: string;
+    };
 
 export const KonvaPractice = () => {
   const [shapes, setShapes] = useState<Shape[]>([
@@ -32,8 +40,6 @@ export const KonvaPractice = () => {
       type: "circle",
       x: 250,
       y: 150,
-      width: 100,
-      height: 100,
       radius: 50,
       fill: "orange",
     },
@@ -41,6 +47,35 @@ export const KonvaPractice = () => {
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
   const trRef = useRef<TransformerType | null>(null);
+
+  const handleTransformEnd = (
+    node: Konva.Node,
+    id: number,
+    type: "rect" | "circle"
+  ) => {
+    const scaleX = node.scaleX();
+    const scaleY = node.scaleY();
+
+    setShapes((prev) =>
+      prev.map((shape) => {
+        if (shape.id !== id) return shape;
+        if (type === "rect" && shape.type === "rect") {
+          const newWidth = Math.max(20, shape.width * scaleX);
+          const newHeight = Math.max(20, shape.height * scaleY);
+          node.scaleX(1);
+          node.scaleY(1);
+          return { ...shape, width: newWidth, height: newHeight };
+        }
+        if (type === "circle" && shape.type === "circle") {
+          const newRadius = Math.max(20, shape.radius * scaleX);
+          node.scaleX(1);
+          node.scaleY(1);
+          return { ...shape, radius: newRadius };
+        }
+        return shape;
+      })
+    );
+  };
 
   // Transformer を選択した図形にアタッチ
   const attachTransformer = (node: Konva.Node | null) => {
@@ -59,7 +94,7 @@ export const KonvaPractice = () => {
       <Stage
         width={600}
         height={400}
-        style={{ border: "1px solid gray" }}
+        style={{ border: "1px solid gray", width: "fit-content" }}
         onClick={(e) => {
           // 背景をクリックした場合、選択解除
           if (e.target === e.target.getStage()) {
@@ -85,6 +120,9 @@ export const KonvaPractice = () => {
                     prev.map((s) => (s.id === shape.id ? { ...s, x, y } : s))
                   );
                 }}
+                onTransformEnd={(e) =>
+                  handleTransformEnd(e.target, shape.id, "rect")
+                }
                 ref={shape.id === selectedId ? attachTransformer : undefined}
               />
             ) : (
@@ -102,6 +140,9 @@ export const KonvaPractice = () => {
                     prev.map((s) => (s.id === shape.id ? { ...s, x, y } : s))
                   );
                 }}
+                onTransformEnd={(e) =>
+                  handleTransformEnd(e.target, shape.id, "circle")
+                }
                 ref={shape.id === selectedId ? attachTransformer : undefined}
               />
             )
