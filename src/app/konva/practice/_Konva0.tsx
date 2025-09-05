@@ -1,7 +1,7 @@
 "use client";
 
 // Konva
-export const Konva = () => {
+export const KonvaPractice = () => {
   return (
     <div className="container p-4">
       <h1></h1>
