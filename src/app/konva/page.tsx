@@ -1,6 +1,12 @@
-// https://qiita.com/YSRKEN/items/bb8b34510d70ec90eb50
+// import { Konva } from "./practice/Konva1";
+import { Konva } from "./practice/Konva2";
+
 const Page = () => {
-  return <div>konva</div>;
+  return (
+    <div>
+      <Konva />
+    </div>
+  );
 };
 
 export default Page;
