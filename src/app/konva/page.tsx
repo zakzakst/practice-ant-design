@@ -5,7 +5,8 @@
 // import { KonvaPractice as Konva } from "./practice/Konva5";
 // import { KonvaPractice as Konva } from "./practice/Konva6";
 // import { KonvaPractice as Konva } from "./practice/Konva7";
-import { KonvaPractice as Konva } from "./practice/Konva8";
+// import { KonvaPractice as Konva } from "./practice/Konva8";
+import { KonvaPractice as Konva } from "./practice/Konva9";
 
 const Page = () => {
   return (
