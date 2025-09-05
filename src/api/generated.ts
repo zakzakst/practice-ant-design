@@ -46,20 +46,46 @@ export interface ErrorResponse {
   message?: string;
 }
 
+export type GetUsersParams = {
+/**
+ * Page number (starting from 1)
+ * @minimum 1
+ */
+page?: number;
+/**
+ * Number of users per page
+ * @minimum 1
+ * @maximum 100
+ */
+pageSize?: number;
+};
+
+export type GetUsers200 = {
+  /** Total number of users */
+  total?: number;
+  /** Current page number */
+  page?: number;
+  /** Number of users per page */
+  pageSize?: number;
+  users?: User[];
+};
+
 /**
  * @summary Get all users
  */
 export const getUsers = (
-     options?: AxiosRequestConfig
- ): Promise<AxiosResponse<User[]>> => {
+    params?: GetUsersParams, options?: AxiosRequestConfig
+ ): Promise<AxiosResponse<GetUsers200>> => {
     return axios.get(
-      `/api/users`,options
+      `/api/users`,{
+    ...options,
+        params: {...params, ...options?.params},}
     );
   }
 
 
 
-export const getGetUsersKey = () => [`/api/users`] as const;
+export const getGetUsersKey = (params?: GetUsersParams,) => [`/api/users`, ...(params ? [params]: [])] as const;
 
 export type GetUsersQueryResult = NonNullable<Awaited<ReturnType<typeof getUsers>>>
 export type GetUsersQueryError = AxiosError<ErrorResponse>
@@ -68,13 +94,13 @@ export type GetUsersQueryError = AxiosError<ErrorResponse>
  * @summary Get all users
  */
 export const useGetUsers = <TError = AxiosError<ErrorResponse>>(
-   options?: { swr?:SWRConfiguration<Awaited<ReturnType<typeof getUsers>>, TError> & { swrKey?: Key, enabled?: boolean }, axios?: AxiosRequestConfig }
+  params?: GetUsersParams, options?: { swr?:SWRConfiguration<Awaited<ReturnType<typeof getUsers>>, TError> & { swrKey?: Key, enabled?: boolean }, axios?: AxiosRequestConfig }
 ) => {
   const {swr: swrOptions, axios: axiosOptions} = options ?? {}
 
   const isEnabled = swrOptions?.enabled !== false
-  const swrKey = swrOptions?.swrKey ?? (() => isEnabled ? getGetUsersKey() : null);
-  const swrFn = () => getUsers(axiosOptions)
+  const swrKey = swrOptions?.swrKey ?? (() => isEnabled ? getGetUsersKey(params) : null);
+  const swrFn = () => getUsers(params, axiosOptions)
 
   const query = useSwr<Awaited<ReturnType<typeof swrFn>>, TError>(swrKey, swrFn, swrOptions)
 
@@ -172,12 +198,12 @@ export const useDeleteUsersId = <TError = AxiosError<unknown>>(
 }
 
 
-export const getGetUsersResponseMock = (): User[] => (Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({id: faker.helpers.arrayElement([faker.number.int({min: undefined, max: undefined}), undefined]), name: faker.helpers.arrayElement([faker.string.alpha({length: {min: 10, max: 20}}), undefined])})))
+export const getGetUsersResponseMock = (overrideResponse: Partial< GetUsers200 > = {}): GetUsers200 => ({total: faker.helpers.arrayElement([faker.number.int({min: undefined, max: undefined, multipleOf: undefined}), undefined]), page: faker.helpers.arrayElement([faker.number.int({min: undefined, max: undefined, multipleOf: undefined}), undefined]), pageSize: faker.helpers.arrayElement([faker.number.int({min: undefined, max: undefined, multipleOf: undefined}), undefined]), users: faker.helpers.arrayElement([Array.from({ length: faker.number.int({ min: 1, max: 10 }) }, (_, i) => i + 1).map(() => ({id: faker.helpers.arrayElement([faker.number.int({min: undefined, max: undefined, multipleOf: undefined}), undefined]), name: faker.helpers.arrayElement([faker.string.alpha({length: {min: 10, max: 20}}), undefined])})), undefined]), ...overrideResponse})
 
-export const getPostUsersResponseMock = (overrideResponse: Partial< User > = {}): User => ({id: faker.helpers.arrayElement([faker.number.int({min: undefined, max: undefined}), undefined]), name: faker.helpers.arrayElement([faker.string.alpha({length: {min: 10, max: 20}}), undefined]), ...overrideResponse})
+export const getPostUsersResponseMock = (overrideResponse: Partial< User > = {}): User => ({id: faker.helpers.arrayElement([faker.number.int({min: undefined, max: undefined, multipleOf: undefined}), undefined]), name: faker.helpers.arrayElement([faker.string.alpha({length: {min: 10, max: 20}}), undefined]), ...overrideResponse})
 
 
-export const getGetUsersMockHandler = (overrideResponse?: User[] | ((info: Parameters<Parameters<typeof http.get>[1]>[0]) => Promise<User[]> | User[])) => {
+export const getGetUsersMockHandler = (overrideResponse?: GetUsers200 | ((info: Parameters<Parameters<typeof http.get>[1]>[0]) => Promise<GetUsers200> | GetUsers200)) => {
   return http.get('*/users', async (info) => {await delay(1000);
   
     return new HttpResponse(JSON.stringify(overrideResponse !== undefined
