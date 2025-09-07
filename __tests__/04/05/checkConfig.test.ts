@@ -19,6 +19,6 @@ test("expect.objectContaining による部分検証", () => {
       feature: {
         spy: true,
       },
-    })
+    }),
   );
 });

@@ -28,17 +28,11 @@ export const generateMetadata = async ({
 
 const Page = async ({ params }: { params: Promise<{ id: string }> }) => {
   const { id } = await params;
-  const fileContents = fs.readFileSync(
-    `./src/app/posts/contents/${id}.md`,
-    "utf-8"
-  );
+  const fileContents = fs.readFileSync(`./src/app/posts/contents/${id}.md`, "utf-8");
   const matterResult = matter(fileContents);
   return (
     <>
-      <ReactMarkdown
-        rehypePlugins={[rehypeRaw, rehypeSanitize]}
-        remarkPlugins={[remarkGfm]}
-      >
+      <ReactMarkdown rehypePlugins={[rehypeRaw, rehypeSanitize]} remarkPlugins={[remarkGfm]}>
         {matterResult.content}
       </ReactMarkdown>
     </>

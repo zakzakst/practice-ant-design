@@ -13,9 +13,7 @@ const InputDemo = () => {
           <Input type="file" />
           <Input disabled type="email" placeholder="Email" />
         </div>
-        <p>
-          アラート状態やサクセス状態は設定出来なかった、別途classNameで値を設定する必要がある
-        </p>
+        <p>アラート状態やサクセス状態は設定出来なかった、別途classNameで値を設定する必要がある</p>
       </DesignBox>
     </section>
   );

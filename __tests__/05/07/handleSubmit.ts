@@ -1,6 +1,6 @@
 export const handleSubmit = (
   // eslint-disable-next-line
-  callback: (values: any) => Promise<void> | void
+  callback: (values: any) => Promise<void> | void,
 ) => {
   return (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();

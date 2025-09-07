@@ -46,7 +46,7 @@ const PostTodoResponseMock: PostTodoResponse = {
 
 const postTodoFetcher = async (
   url: string,
-  { arg }: { arg: PostTodoRequest }
+  { arg }: { arg: PostTodoRequest },
 ): Promise<PostTodoResponse | undefined> => {
   if (IsUseTodoMock) {
     sleep(1000);
@@ -115,10 +115,7 @@ export const SwrSample = () => {
           name="completed"
           control={control}
           render={({ field }) => (
-            <Checkbox
-              checked={field.value}
-              onCheckedChange={(val) => field.onChange(val)}
-            />
+            <Checkbox checked={field.value} onCheckedChange={(val) => field.onChange(val)} />
           )}
         />
       </div>

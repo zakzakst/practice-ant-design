@@ -59,9 +59,7 @@ const Form2 = () => {
           type="password"
           id="password"
           value={formData.password}
-          onChange={(e) =>
-            setFormData({ ...formData, password: e.target.value })
-          }
+          onChange={(e) => setFormData({ ...formData, password: e.target.value })}
         />
         {errors.password && <p>{errors.password}</p>}
       </div>

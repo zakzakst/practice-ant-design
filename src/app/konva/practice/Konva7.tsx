@@ -21,10 +21,7 @@ export const KonvaPractice = () => {
     const stage = stageRef.current;
     const pos = stage?.getPointerPosition();
     if (!pos) return;
-    setLines([
-      ...lines,
-      { id: `line-${lines.length}`, points: [pos.x, pos.y], color: "black" },
-    ]);
+    setLines([...lines, { id: `line-${lines.length}`, points: [pos.x, pos.y], color: "black" }]);
   };
 
   const handleMouseMove = () => {

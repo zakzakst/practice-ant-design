@@ -172,8 +172,7 @@ export const PartsForm = ({ onSubmit }: Props) => {
           </div>
 
           <div>
-            {!!previewUrls.length &&
-              previewUrls.map((url, index) => <img key={index} src={url} />)}
+            {!!previewUrls.length && previewUrls.map((url, index) => <img key={index} src={url} />)}
           </div>
 
           <div>
@@ -191,9 +190,7 @@ export const PartsForm = ({ onSubmit }: Props) => {
 
           <div>
             {!!moviePreviewUrls.length &&
-              moviePreviewUrls.map((url, index) => (
-                <video key={index} src={url} controls />
-              ))}
+              moviePreviewUrls.map((url, index) => <video key={index} src={url} controls />)}
           </div>
 
           {/* <button onClick={handleSubmit(onSubmit)}>送信</button> */}

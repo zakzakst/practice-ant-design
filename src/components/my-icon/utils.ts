@@ -20,7 +20,7 @@ export type IconProps = {
 
 export const createIcon = (
   { color = "currentColor", size = 24, className }: IconProps,
-  iconNodes: { tag: string; attrs: Record<string, string> }[]
+  iconNodes: { tag: string; attrs: Record<string, string> }[],
 ) => {
   return React.createElement(
     "svg",
@@ -30,10 +30,6 @@ export const createIcon = (
       height: size,
       className,
     },
-    [
-      ...iconNodes.map(({ tag, attrs }) =>
-        React.createElement(tag, { ...attrs, fill: color })
-      ),
-    ]
+    [...iconNodes.map(({ tag, attrs }) => React.createElement(tag, { ...attrs, fill: color }))],
   );
 };

@@ -27,7 +27,7 @@ export const addressSchema = z.object({
       z.object({
         postalCode: z.string().min(1, "郵便番号は必須です"),
         city: z.string().min(1, "市区町村は必須です"),
-      })
+      }),
     )
     .min(1, "住所は1つ以上必要です"),
 });

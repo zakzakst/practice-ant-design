@@ -15,11 +15,9 @@ const formSchema = z
         (val) => {
           return /[0-9]/.test(val) && /[a-zA-Z]/.test(val);
         },
-        { message: "パスワードは英字と数字を含める必要があります" }
+        { message: "パスワードは英字と数字を含める必要があります" },
       ),
-    confirmPassword: z
-      .string()
-      .min(8, "確認用パスワードは8文字以上の必要があります"),
+    confirmPassword: z.string().min(8, "確認用パスワードは8文字以上の必要があります"),
   })
   .superRefine((data, ctx) => {
     if (data.password !== data.confirmPassword) {
@@ -59,11 +57,7 @@ const ConfirmPasswordField = () => {
     <div className="grid grid-cols-[120px_1fr]">
       <Label htmlFor="confirmPassword">確認用パスワード</Label>
       <div>
-        <Input
-          id="confirmPassword"
-          type="password"
-          {...register("confirmPassword")}
-        />
+        <Input id="confirmPassword" type="password" {...register("confirmPassword")} />
         {errors.confirmPassword && <p>{errors.confirmPassword.message}</p>}
       </div>
     </div>

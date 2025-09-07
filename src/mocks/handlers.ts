@@ -7,7 +7,7 @@ export const handlers = [
         { id: 1, name: "Alice" },
         { id: 2, name: "Bob" },
       ],
-      { status: 200 }
+      { status: 200 },
     );
   }),
 ];

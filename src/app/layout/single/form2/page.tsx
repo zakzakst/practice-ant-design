@@ -80,9 +80,7 @@ const Page = () => {
   useEffect(() => {
     const fetchUsers = async () => {
       try {
-        const response = await fetch(
-          "https://jsonplaceholder.typicode.com/users"
-        );
+        const response = await fetch("https://jsonplaceholder.typicode.com/users");
         const json = await response.json();
         setUsers(json);
       } catch (error) {
@@ -109,9 +107,7 @@ const Page = () => {
               maxLength: { value: 8, message: "8文字以内で入力してください" },
             })}
           />
-          {errors.username && (
-            <p className="text-destructive">{errors.username.message}</p>
-          )}
+          {errors.username && <p className="text-destructive">{errors.username.message}</p>}
         </div>
 
         <div className="mt-4">
@@ -123,9 +119,7 @@ const Page = () => {
               maxLength: { value: 8, message: "8文字以内で入力してください" },
             })}
           />
-          {errors.profile && (
-            <p className="text-destructive">{errors.profile.message}</p>
-          )}
+          {errors.profile && <p className="text-destructive">{errors.profile.message}</p>}
         </div>
 
         <div className="mt-4">
@@ -145,9 +139,7 @@ const Page = () => {
             )}
           />
           <Label htmlFor="accept">同意する</Label>
-          {errors.accept && (
-            <p className="text-destructive">{errors.accept.message}</p>
-          )}
+          {errors.accept && <p className="text-destructive">{errors.accept.message}</p>}
         </div>
 
         <div className="mt-4">
@@ -166,9 +158,7 @@ const Page = () => {
             )}
           />
           <Label htmlFor="switch">同意する</Label>
-          {errors.switch && (
-            <p className="text-destructive">{errors.switch.message}</p>
-          )}
+          {errors.switch && <p className="text-destructive">{errors.switch.message}</p>}
         </div>
 
         <div className="mt-4">
@@ -195,9 +185,7 @@ const Page = () => {
               </RadioGroup>
             )}
           />
-          {errors.favorite && (
-            <p className="text-destructive">{errors.favorite.message}</p>
-          )}
+          {errors.favorite && <p className="text-destructive">{errors.favorite.message}</p>}
         </div>
 
         <div className="mt-4">
@@ -226,9 +214,7 @@ const Page = () => {
               </Select>
             )}
           />
-          {errors.color && (
-            <p className="text-destructive">{errors.color.message}</p>
-          )}
+          {errors.color && <p className="text-destructive">{errors.color.message}</p>}
         </div>
 
         <div className="mt-4">
@@ -257,9 +243,7 @@ const Page = () => {
               </Select>
             )}
           />
-          {errors.userId && (
-            <p className="text-destructive">{errors.userId.message}</p>
-          )}
+          {errors.userId && <p className="text-destructive">{errors.userId.message}</p>}
         </div>
 
         <div className="mt-4">

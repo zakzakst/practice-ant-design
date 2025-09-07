@@ -8,9 +8,7 @@ jest.mock("../fetchers");
 
 const mockPostMyArticle = (input: ArticleInput, status: number = 200) => {
   if (status > 299) {
-    return jest
-      .spyOn(Fetchers, "postMyArticle")
-      .mockRejectedValueOnce(httpError);
+    return jest.spyOn(Fetchers, "postMyArticle").mockRejectedValueOnce(httpError);
   }
   try {
     checkLength(input.title);
@@ -19,9 +17,7 @@ const mockPostMyArticle = (input: ArticleInput, status: number = 200) => {
       .spyOn(Fetchers, "postMyArticle")
       .mockResolvedValueOnce({ ...postMyArticleData, ...input });
   } catch {
-    return jest
-      .spyOn(Fetchers, "postMyArticle")
-      .mockRejectedValueOnce(httpError);
+    return jest.spyOn(Fetchers, "postMyArticle").mockRejectedValueOnce(httpError);
   }
 };
 

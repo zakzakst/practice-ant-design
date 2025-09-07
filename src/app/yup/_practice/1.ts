@@ -2,10 +2,7 @@ import * as yup from "yup";
 
 const schema = yup.object().shape({
   name: yup.string().required("名前は必須です"),
-  age: yup
-    .number()
-    .integer("年齢は整数でなければなりません")
-    .required("年齢は必須です"),
+  age: yup.number().integer("年齢は整数でなければなりません").required("年齢は必須です"),
 });
 
 const data = {

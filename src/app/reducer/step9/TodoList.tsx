@@ -8,12 +8,7 @@ export const TodoList = () => {
   return (
     <ul>
       {state.todos.map((todo) => (
-        <li
-          key={todo.id}
-          onClick={() =>
-            dispatch({ type: ActionTypes.TOGGLE_TODO, id: todo.id })
-          }
-        >
+        <li key={todo.id} onClick={() => dispatch({ type: ActionTypes.TOGGLE_TODO, id: todo.id })}>
           {todo.text} {todo.completed ? "✅" : "❌"}
         </li>
       ))}

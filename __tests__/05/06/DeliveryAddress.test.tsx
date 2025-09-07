@@ -12,26 +12,18 @@ describe("お届け先", () => {
   });
   test("郵便番号", () => {
     render(<DeliveryAddress />);
-    expect(
-      screen.getByRole("textbox", { name: "郵便番号" })
-    ).toBeInTheDocument();
+    expect(screen.getByRole("textbox", { name: "郵便番号" })).toBeInTheDocument();
   });
   test("都道府県", () => {
     render(<DeliveryAddress />);
-    expect(
-      screen.getByRole("textbox", { name: "都道府県" })
-    ).toBeInTheDocument();
+    expect(screen.getByRole("textbox", { name: "都道府県" })).toBeInTheDocument();
   });
   test("市区町村", () => {
     render(<DeliveryAddress />);
-    expect(
-      screen.getByRole("textbox", { name: "市区町村" })
-    ).toBeInTheDocument();
+    expect(screen.getByRole("textbox", { name: "市区町村" })).toBeInTheDocument();
   });
   test("番地番号", () => {
     render(<DeliveryAddress />);
-    expect(
-      screen.getByRole("textbox", { name: "番地番号" })
-    ).toBeInTheDocument();
+    expect(screen.getByRole("textbox", { name: "番地番号" })).toBeInTheDocument();
   });
 });

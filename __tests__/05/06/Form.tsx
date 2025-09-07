@@ -11,9 +11,7 @@ export type Props = {
 };
 
 export const Form = ({ deliveryAddresses, onSubmit }: Props) => {
-  const [registerNew, setRegisterNew] = useState<boolean | undefined>(
-    undefined
-  );
+  const [registerNew, setRegisterNew] = useState<boolean | undefined>(undefined);
   return (
     <form onSubmit={onSubmit}>
       <h2>お届け先情報の入力</h2>
@@ -24,10 +22,7 @@ export const Form = ({ deliveryAddresses, onSubmit }: Props) => {
           {registerNew ? (
             <DeliveryAddress title="新しいお届け先" />
           ) : (
-            <PastDeliveryAddress
-              disabled={registerNew === undefined}
-              options={deliveryAddresses}
-            />
+            <PastDeliveryAddress disabled={registerNew === undefined} options={deliveryAddresses} />
           )}
         </>
       ) : (

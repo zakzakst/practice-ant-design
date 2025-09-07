@@ -21,10 +21,7 @@ const ToastDemo = () => {
               description: "Friday, February 10, 2023 at 5:57 PM",
               duration: 4000,
               action: (
-                <ToastAction
-                  altText="Try again"
-                  onClick={() => console.log("action")}
-                >
+                <ToastAction altText="Try again" onClick={() => console.log("action")}>
                   Try again
                 </ToastAction>
               ),

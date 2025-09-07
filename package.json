@@ -18,7 +18,9 @@
     "test:coverage": "jest --testMatch \"**/__tests__/06/*.test.{ts,tsx}\" --coverage",
     "test:reporters": "jest --testMatch \"**/__tests__/06/*.test.{ts,tsx}\" --reporters=default --reporters=jest-html-reporters",
     "test:target-file-example": "jest \"./__tests__/05/03/Form.test.tsx\" -t \"logRoles: レンダリング結果からロール・アクセシブルネームを確認\"",
-    "orval": "orval"
+    "orval": "orval",
+    "biome:check": "biome check .",
+    "biome:format": "biome format --write ."
   },
   "dependencies": {
     "@faker-js/faker": "^10.0.0",
@@ -82,6 +84,7 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
+    "@biomejs/biome": "2.2.3",
     "@markuplint/jsx-parser": "^4.7.16",
     "@markuplint/react-spec": "^4.5.16",
     "@testing-library/dom": "^10.4.0",

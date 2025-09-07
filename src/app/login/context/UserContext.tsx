@@ -24,11 +24,7 @@ export const UserProvider = ({ children }: { children: ReactNode }) => {
     // cookieやlocalStorageをクリアしてもOK
   };
 
-  return (
-    <UserContext.Provider value={{ user, login, logout }}>
-      {children}
-    </UserContext.Provider>
-  );
+  return <UserContext.Provider value={{ user, login, logout }}>{children}</UserContext.Provider>;
 };
 
 export const useUser = () => {

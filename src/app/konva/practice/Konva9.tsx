@@ -52,22 +52,8 @@ export const KonvaPractice = () => {
           draggable
         >
           <Layer>
-            <Rect
-              x={50}
-              y={50}
-              width={100}
-              height={100}
-              fill="skyblue"
-              draggable
-            />
-            <Rect
-              x={200}
-              y={150}
-              width={150}
-              height={100}
-              fill="orange"
-              draggable
-            />
+            <Rect x={50} y={50} width={100} height={100} fill="skyblue" draggable />
+            <Rect x={200} y={150} width={150} height={100} fill="orange" draggable />
           </Layer>
         </Stage>
       </div>

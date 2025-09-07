@@ -10,9 +10,8 @@ type OwnProps<T extends keyof Pick<JSX.IntrinsicElements, HeadingKey>> = {
   className?: string;
 };
 
-type Props<T extends keyof Pick<JSX.IntrinsicElements, HeadingKey>> =
-  OwnProps<T> &
-    Omit<Pick<JSX.IntrinsicElements, HeadingKey>[T], keyof OwnProps<T>>;
+type Props<T extends keyof Pick<JSX.IntrinsicElements, HeadingKey>> = OwnProps<T> &
+  Omit<Pick<JSX.IntrinsicElements, HeadingKey>[T], keyof OwnProps<T>>;
 
 type HeadingStyle = Record<HeadingKey, string>;
 
@@ -25,9 +24,7 @@ const headingStyles: HeadingStyle = {
   h6: "text-base dark:text-white",
 };
 
-const DesignHeading = <
-  T extends keyof Pick<JSX.IntrinsicElements, HeadingKey>
->({
+const DesignHeading = <T extends keyof Pick<JSX.IntrinsicElements, HeadingKey>>({
   tag,
   size,
   children,

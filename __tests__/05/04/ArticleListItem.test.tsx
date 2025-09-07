@@ -11,6 +11,6 @@ test("ID に紐づいたリンクが表示される", () => {
   render(<ArticleListItem {...item} />);
   expect(screen.getByRole("link", { name: "もっと見る" })).toHaveAttribute(
     "href",
-    "/articles/howto-testing-with-typescript"
+    "/articles/howto-testing-with-typescript",
   );
 });

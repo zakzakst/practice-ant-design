@@ -3,9 +3,7 @@ import { Agreement } from "./Agreement";
 
 test("fieldset のアクセシブルネームは、legend を引用している", () => {
   render(<Agreement />);
-  expect(
-    screen.getByRole("group", { name: "利用規約の同意" })
-  ).toBeInTheDocument();
+  expect(screen.getByRole("group", { name: "利用規約の同意" })).toBeInTheDocument();
 });
 
 test("チェックボックスはチェックが入っていない", () => {
@@ -18,8 +16,5 @@ test("利用規約へのリンクがある", () => {
   expect(screen.getByRole("link")).toBeInTheDocument();
   expect(screen.getByRole("link")).toHaveTextContent("利用規約");
   expect(screen.getByRole("link")).toHaveAttribute("href", "/terms");
-  expect(screen.getByRole("link", { name: "利用規約" })).toHaveAttribute(
-    "href",
-    "/terms"
-  );
+  expect(screen.getByRole("link", { name: "利用規約" })).toHaveAttribute("href", "/terms");
 });

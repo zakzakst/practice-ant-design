@@ -9,20 +9,14 @@ type TodoContextType = {
   dispatch: React.Dispatch<Action>;
 };
 
-const TodoContextState = createContext<
-  Pick<TodoContextType, "state"> | undefined
->(undefined);
-const TodoContextDispatch = createContext<
-  Pick<TodoContextType, "dispatch"> | undefined
->(undefined);
+const TodoContextState = createContext<Pick<TodoContextType, "state"> | undefined>(undefined);
+const TodoContextDispatch = createContext<Pick<TodoContextType, "dispatch"> | undefined>(undefined);
 
 export const TodoProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
   return (
     <TodoContextState.Provider value={{ state }}>
-      <TodoContextDispatch.Provider value={{ dispatch }}>
-        {children}
-      </TodoContextDispatch.Provider>
+      <TodoContextDispatch.Provider value={{ dispatch }}>{children}</TodoContextDispatch.Provider>
     </TodoContextState.Provider>
   );
 };

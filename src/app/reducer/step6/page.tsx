@@ -42,7 +42,7 @@ const reducer = (state: State, action: Action): State => {
     case ActionTypes.TOGGLE_TODO:
       return {
         todos: state.todos.map((todo) =>
-          todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
+          todo.id === action.id ? { ...todo, completed: !todo.completed } : todo,
         ),
       };
     case ActionTypes.REMOVE_TODO:
@@ -63,11 +63,7 @@ const TodoContext = createContext<TodoContextType | undefined>(undefined);
 
 const TodoProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  return (
-    <TodoContext.Provider value={{ state, dispatch }}>
-      {children}
-    </TodoContext.Provider>
-  );
+  return <TodoContext.Provider value={{ state, dispatch }}>{children}</TodoContext.Provider>;
 };
 
 const useTodos = () => {
@@ -85,18 +81,10 @@ const TodoList = () => {
       {state.todos.map((todo) => (
         <li key={todo.id}>
           {todo.completed && <span>完了</span>}
-          <span
-            onClick={() =>
-              dispatch({ type: ActionTypes.TOGGLE_TODO, id: todo.id })
-            }
-          >
+          <span onClick={() => dispatch({ type: ActionTypes.TOGGLE_TODO, id: todo.id })}>
             {todo.text}
           </span>
-          <button
-            onClick={() =>
-              dispatch({ type: ActionTypes.REMOVE_TODO, id: todo.id })
-            }
-          >
+          <button onClick={() => dispatch({ type: ActionTypes.REMOVE_TODO, id: todo.id })}>
             Remove
           </button>
         </li>

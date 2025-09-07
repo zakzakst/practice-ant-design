@@ -12,10 +12,7 @@ const schema = yup.object().shape({
       thenSchema
         .min(8, "パスワードは8文字以上でなければなりません")
         .matches(/[0-9]/, "パスワードには少なくとも1つの数字を含めてください")
-        .matches(
-          /[a-zA-Z]/,
-          "パスワードには少なくとも1つのアルファベットを含めてください"
-        )
+        .matches(/[a-zA-Z]/, "パスワードには少なくとも1つのアルファベットを含めてください")
         .required("パスワードは必須です"),
     otherwise: (otherSchema) => otherSchema.notRequired(),
   }),

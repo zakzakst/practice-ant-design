@@ -45,7 +45,7 @@ const PutTodoResponseMock: PutTodoResponse = {
 
 const putTodoFetcher = async (
   url: string,
-  { arg }: { arg: PutTodoRequest }
+  { arg }: { arg: PutTodoRequest },
 ): Promise<PutTodoResponse | undefined> => {
   if (IsUseTodoMock) {
     sleep(1000);
@@ -64,47 +64,49 @@ const putTodoFetcher = async (
       throw error;
     }
   }
-}
+};
 
 const usePutTodo = (id?: number) => {
   const url = IsUseErrorMock
     ? "https://dummyjson.com/http/404/404エラーのレスポンスメッセージ"
-    : id ? `https://dummyjson.com/todos/${id}` : null
-  const { trigger, error, isMutating } = useSWRMutation(url, putTodoFetcher)
+    : id
+      ? `https://dummyjson.com/todos/${id}`
+      : null;
+  const { trigger, error, isMutating } = useSWRMutation(url, putTodoFetcher);
   return {
     trigger,
     error,
     isMutating,
-  }
-}
+  };
+};
 
 export const SwrSample = () => {
-  const [targetTodoId, setTargetTodoId] = useState<number>()
+  const [targetTodoId, setTargetTodoId] = useState<number>();
   const {
     register,
     control,
     handleSubmit,
     setValue,
-    formState: {errors: formErrors}
+    formState: { errors: formErrors },
   } = useForm<PutTodoFormValue>({
     resolver: zodResolver(putTodoFormSchema),
-  })
+  });
   const { trigger, error } = usePutTodo(targetTodoId);
   const onSelectTargetTodo = () => {
     // 下記のTODOを変更対象として選択した想定
     // { id: 1, todo: 'お昼ご飯を買いに行く', completed: true }
-    setTargetTodoId(1)
-    setValue('todo', 'お昼ご飯を買いに行く')
-    setValue('completed', true)
-  }
+    setTargetTodoId(1);
+    setValue("todo", "お昼ご飯を買いに行く");
+    setValue("completed", true);
+  };
   const onSubmit = async (value: PutTodoFormValue) => {
     try {
-      const res = await trigger(value)
+      const res = await trigger(value);
       console.log(res);
     } catch (e) {
       console.error(e);
     }
-  }
+  };
   return (
     <div>
       <h1>axios PUT Todo</h1>
@@ -116,10 +118,7 @@ export const SwrSample = () => {
           name="completed"
           control={control}
           render={({ field }) => (
-            <Checkbox
-              checked={field.value}
-              onCheckedChange={(val) => field.onChange(val)}
-            />
+            <Checkbox checked={field.value} onCheckedChange={(val) => field.onChange(val)} />
           )}
         />
       </div>

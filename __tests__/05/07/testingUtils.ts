@@ -11,16 +11,10 @@ export const inputContactNumber = async (
   inputValues = {
     name: "田中 太郎",
     phoneNumber: "000-0000-0000",
-  }
+  },
 ) => {
-  await user.type(
-    screen.getByRole("textbox", { name: "電話番号" }),
-    inputValues.phoneNumber
-  );
-  await user.type(
-    screen.getByRole("textbox", { name: "お名前" }),
-    inputValues.name
-  );
+  await user.type(screen.getByRole("textbox", { name: "電話番号" }), inputValues.phoneNumber);
+  await user.type(screen.getByRole("textbox", { name: "お名前" }), inputValues.name);
   return inputValues;
 };
 
@@ -30,29 +24,15 @@ export const inputDeliveryAddress = async (
     prefectures: "東京都",
     municipalities: "杉並区荻窪1",
     streetNumber: "00-00",
-  }
+  },
 ) => {
-  await user.type(
-    screen.getByRole("textbox", { name: "郵便番号" }),
-    inputValues.postalCode
-  );
-  await user.type(
-    screen.getByRole("textbox", { name: "都道府県" }),
-    inputValues.prefectures
-  );
-  await user.type(
-    screen.getByRole("textbox", { name: "市区町村" }),
-    inputValues.municipalities
-  );
-  await user.type(
-    screen.getByRole("textbox", { name: "番地番号" }),
-    inputValues.streetNumber
-  );
+  await user.type(screen.getByRole("textbox", { name: "郵便番号" }), inputValues.postalCode);
+  await user.type(screen.getByRole("textbox", { name: "都道府県" }), inputValues.prefectures);
+  await user.type(screen.getByRole("textbox", { name: "市区町村" }), inputValues.municipalities);
+  await user.type(screen.getByRole("textbox", { name: "番地番号" }), inputValues.streetNumber);
   return inputValues;
 };
 
 export const clickSubmit = async () => {
-  await user.click(
-    screen.getByRole("button", { name: "注文内容の確認へ進む" })
-  );
+  await user.click(screen.getByRole("button", { name: "注文内容の確認へ進む" }));
 };

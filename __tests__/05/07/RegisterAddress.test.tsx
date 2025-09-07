@@ -1,11 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import { mockPostMyAddress } from "./fetchers/mock";
 import { RegisterAddress } from "./RegisterAddress";
-import {
-  clickSubmit,
-  inputContactNumber,
-  inputDeliveryAddress,
-} from "./testingUtils";
+import { clickSubmit, inputContactNumber, inputDeliveryAddress } from "./testingUtils";
 
 jest.mock("./fetchers");
 

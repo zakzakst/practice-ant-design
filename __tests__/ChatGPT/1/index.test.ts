@@ -15,11 +15,7 @@ test("jest.fn()の戻り値を設定する", () => {
 
 test("呼び出しごとに異なる値を返す", () => {
   // mockReturnValueOnce() を使うと、特定の回数だけ異なる戻り値を設定できる
-  const mockFn = jest
-    .fn()
-    .mockReturnValueOnce(1)
-    .mockReturnValueOnce(2)
-    .mockReturnValue(3);
+  const mockFn = jest.fn().mockReturnValueOnce(1).mockReturnValueOnce(2).mockReturnValue(3);
   expect(mockFn()).toBe(1);
   expect(mockFn()).toBe(2);
   expect(mockFn()).toBe(3);

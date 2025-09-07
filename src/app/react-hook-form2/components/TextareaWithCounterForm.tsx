@@ -20,10 +20,7 @@ export const TextareaWithCounterForm = () => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="mx-auto max-w-md space-y-4"
-    >
+    <form onSubmit={handleSubmit(onSubmit)} className="mx-auto max-w-md space-y-4">
       <TextareaWithCounter
         name="bio"
         label="自己紹介（最大100文字）"
@@ -37,10 +34,7 @@ export const TextareaWithCounterForm = () => {
           // },
         }}
       />
-      <button
-        type="submit"
-        className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
-      >
+      <button type="submit" className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
         送信
       </button>
     </form>

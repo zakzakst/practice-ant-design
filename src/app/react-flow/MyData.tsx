@@ -7,13 +7,7 @@ import {
   // getBezierPath,
   // getSimpleBezierPath,
 } from "@xyflow/react";
-import type {
-  HandleProps,
-  NodeProps,
-  Node,
-  EdgeProps,
-  Edge,
-} from "@xyflow/react";
+import type { HandleProps, NodeProps, Node, EdgeProps, Edge } from "@xyflow/react";
 import styles from "./styles.module.css";
 
 // Handle
@@ -48,16 +42,12 @@ type MyNodeProps = NodeProps<Node<MyNodeData>>;
 const MyNode = (props: MyNodeProps): React.ReactNode => {
   return (
     <>
-      {props.data.flow !== "start" && (
-        <MyHandle position={Position.Left} type="target" />
-      )}
+      {props.data.flow !== "start" && <MyHandle position={Position.Left} type="target" />}
       <div className={styles.container}>
         <p className={styles.type}>{props.data.type}</p>
         <p className={styles.name}>{props.data.name}</p>
       </div>
-      {props.data.flow !== "end" && (
-        <MyHandle position={Position.Right} type="source" />
-      )}
+      {props.data.flow !== "end" && <MyHandle position={Position.Right} type="source" />}
     </>
   );
 };
@@ -119,12 +109,7 @@ const MyEdge = (props: MyEdgeProps): React.ReactNode => {
 
   return (
     <>
-      <BaseEdge
-        id={id}
-        path={edgePath}
-        className={styles.edge}
-        data-type={props.data?.type}
-      />
+      <BaseEdge id={id} path={edgePath} className={styles.edge} data-type={props.data?.type} />
       <EdgeLabelRenderer>
         <span
           style={{

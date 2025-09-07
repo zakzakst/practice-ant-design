@@ -10,10 +10,7 @@ type Props = OwnProps & Omit<JSX.IntrinsicElements["div"], keyof OwnProps>;
 const DesignBox = ({ children, className, ...props }: Props) => {
   return (
     <div
-      className={classNames(
-        className,
-        "p-8 border border-gray-200 rounded-lg shadow-lg"
-      )}
+      className={classNames(className, "p-8 border border-gray-200 rounded-lg shadow-lg")}
       {...props}
     >
       {children}
