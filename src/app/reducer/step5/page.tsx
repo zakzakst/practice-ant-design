@@ -34,11 +34,7 @@ const CounterContext = createContext<CounterContextType | undefined>(undefined);
 
 const CounterProvider = ({ children }: { children: ReactNode }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
-  return (
-    <CounterContext.Provider value={{ state, dispatch }}>
-      {children}
-    </CounterContext.Provider>
-  );
+  return <CounterContext.Provider value={{ state, dispatch }}>{children}</CounterContext.Provider>;
 };
 
 const useCounter = () => {

@@ -6,13 +6,9 @@ jest.mock("../fetchers");
 
 const mockGetMyArticles = (status: number = 200) => {
   if (status > 299) {
-    return jest
-      .spyOn(Fetchers, "getMyArticles")
-      .mockRejectedValueOnce(httpError);
+    return jest.spyOn(Fetchers, "getMyArticles").mockRejectedValueOnce(httpError);
   }
-  return jest
-    .spyOn(Fetchers, "getMyArticles")
-    .mockResolvedValueOnce(getMyArticlesData);
+  return jest.spyOn(Fetchers, "getMyArticles").mockResolvedValueOnce(getMyArticlesData);
 };
 
 test("指定したタグをもつ記事が一件もない場合、null が返る", async () => {

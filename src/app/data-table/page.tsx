@@ -2,10 +2,10 @@
 // import { DataTable } from "./parts/table2"
 // import { DataTable } from "./parts/table3"
 // import { DataTable } from "./parts/table4"
-import { DataTable } from "./parts/table5"
+import { DataTable } from "./parts/table5";
 
 const Page = () => {
-  return <DataTable />
-}
+  return <DataTable />;
+};
 
-export default Page
+export default Page;

@@ -49,17 +49,8 @@ const ListInput = ({ items, onChange }: Props) => {
         <p className="mb-2">入力された項目はありません</p>
       )}
       <div className="grid grid-cols-[1fr_100px] gap-2">
-        <Input
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-        />
-        <Button
-          size="sm"
-          className="h-full"
-          disabled={!inputValue}
-          onClick={() => addItem()}
-        >
+        <Input type="text" value={inputValue} onChange={(e) => setInputValue(e.target.value)} />
+        <Button size="sm" className="h-full" disabled={!inputValue} onClick={() => addItem()}>
           リストに追加
         </Button>
       </div>

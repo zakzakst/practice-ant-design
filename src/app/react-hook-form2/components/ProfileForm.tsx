@@ -34,10 +34,7 @@ export const ProfileForm = () => {
   };
 
   return (
-    <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="mx-auto max-w-md space-y-4"
-    >
+    <form onSubmit={handleSubmit(onSubmit)} className="mx-auto max-w-md space-y-4">
       <label htmlFor="bio" className="block font-bold">
         自己紹介（最大100文字）
       </label>
@@ -53,16 +50,9 @@ export const ProfileForm = () => {
         className="w-full rounded border p-2"
         rows={4}
       />
-      <div className={clsx("text-right text-sm", counterColor)}>
-        {bioValue.length} / 100文字
-      </div>
-      {errors.bio && (
-        <p className="text-sm text-red-500">{errors.bio.message}</p>
-      )}
-      <button
-        type="submit"
-        className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700"
-      >
+      <div className={clsx("text-right text-sm", counterColor)}>{bioValue.length} / 100文字</div>
+      {errors.bio && <p className="text-sm text-red-500">{errors.bio.message}</p>}
+      <button type="submit" className="rounded bg-blue-600 px-4 py-2 text-white hover:bg-blue-700">
         送信
       </button>
     </form>

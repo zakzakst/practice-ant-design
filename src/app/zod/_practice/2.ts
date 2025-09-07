@@ -29,7 +29,7 @@ console.log(
     name: "Alice",
     age: 20,
     address: { city: "Tokyo", zipCode: "1234567" },
-  })
+  }),
 ); // { success: true, data: { name: 'Alice', age: 20, address: { city: 'Tokyo', zipCode: '1234567' } } }
 
 console.log(
@@ -37,5 +37,5 @@ console.log(
     name: "Bob",
     age: 30,
     address: { city: "Osaka", zipCode: "12345" }, // 郵便番号が7桁でない
-  })
+  }),
 ); // { success: false, error: ... }

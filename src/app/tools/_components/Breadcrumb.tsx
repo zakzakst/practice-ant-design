@@ -34,9 +34,7 @@ const Breadcrumb = ({ items, className }: Props) => {
                   <BreadcrumbLink href={item.href}>{item.label}</BreadcrumbLink>
                 )}
               </UiBreadcrumbItem>
-              {isLast ? null : (
-                <BreadcrumbSeparator key={`${item.id}-separator`} />
-              )}
+              {isLast ? null : <BreadcrumbSeparator key={`${item.id}-separator`} />}
             </>
           );
         })}

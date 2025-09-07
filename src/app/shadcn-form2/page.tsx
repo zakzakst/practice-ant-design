@@ -31,11 +31,7 @@ const FormDefaultValues: FormValues = {
   users: [],
 };
 
-const UserForm = ({
-  onSubmit,
-}: {
-  onSubmit: (values: UserFormValues) => void;
-}) => {
+const UserForm = ({ onSubmit }: { onSubmit: (values: UserFormValues) => void }) => {
   const {
     register,
     handleSubmit,
@@ -69,9 +65,7 @@ const UserForm = ({
       {errors.name && <p>{errors.name.message}</p>}
       <Input id="age" type="number" {...register("age")} />
       {errors.age && <p>{errors.age.message}</p>}
-      <button onClick={handleSubmit(handleFormSubmit)}>
-        ユーザーフォーム実行
-      </button>
+      <button onClick={handleSubmit(handleFormSubmit)}>ユーザーフォーム実行</button>
     </div>
   );
 };

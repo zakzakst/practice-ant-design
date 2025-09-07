@@ -21,19 +21,13 @@ type Props = {
   onChangeOpen?: (e: boolean) => void;
 };
 
-export const SelectList = ({
-  listItems,
-  onChangeSelectedItems,
-  onChangeOpen,
-}: Props) => {
+export const SelectList = ({ listItems, onChangeSelectedItems, onChangeOpen }: Props) => {
   const [isOpenDialog, setIsOpenDialog] = useState(false);
   const [inputValue, setInputValue] = useState("");
   const [selectedItems, setSelectedItems] = useState<Item[]>([]);
 
   const selectableItems = useMemo<Item[]>(() => {
-    const targetItems = listItems.filter(
-      (item) => !selectedItems.includes(item)
-    );
+    const targetItems = listItems.filter((item) => !selectedItems.includes(item));
     return targetItems;
   }, [listItems, selectedItems]);
 
@@ -55,9 +49,7 @@ export const SelectList = ({
   const onClickDelete = (deleteItem: Item) => {
     const targetItemIndex = listItems.indexOf(deleteItem);
     if (targetItemIndex === -1) return;
-    const newSelectedItems = selectedItems.filter(
-      (item) => item !== deleteItem
-    );
+    const newSelectedItems = selectedItems.filter((item) => item !== deleteItem);
     setSelectedItems(newSelectedItems);
     onChangeSelectedItems(newSelectedItems);
   };

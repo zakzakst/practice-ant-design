@@ -1,7 +1,7 @@
-'use client'
-import { useState } from 'react';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
+"use client";
+import { useState } from "react";
+import Calendar from "react-calendar";
+import "react-calendar/dist/Calendar.css";
 
 type ValuePiece = Date | null;
 
@@ -15,6 +15,6 @@ const Page = () => {
       <Calendar onChange={onChange} value={value} />
     </div>
   );
-}
+};
 
-export default Page
+export default Page;

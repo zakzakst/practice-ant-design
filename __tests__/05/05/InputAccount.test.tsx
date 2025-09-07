@@ -6,9 +6,7 @@ const user = userEvent.setup();
 
 test("fieldset のアクセシブルネームは、legend を引用している", () => {
   render(<InputAccount />);
-  expect(
-    screen.getByRole("group", { name: "アカウント情報の入力" })
-  ).toBeInTheDocument();
+  expect(screen.getByRole("group", { name: "アカウント情報の入力" })).toBeInTheDocument();
 });
 
 test("メールアドレス入力欄", async () => {

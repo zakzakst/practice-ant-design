@@ -142,7 +142,7 @@ const getMeetingText = (
   goals: string[],
   agendas: string[],
   proceed: string,
-  notes: string
+  notes: string,
 ) => {
   const text = `# ${title}
 
@@ -195,28 +195,12 @@ const Page = () => {
   };
 
   const onCopyToClipboard = () => {
-    const text = getMeetingText(
-      title,
-      purpose,
-      meetingType,
-      goals,
-      agendas,
-      proceed,
-      notes
-    );
+    const text = getMeetingText(title, purpose, meetingType, goals, agendas, proceed, notes);
     copyToClipboard(text);
   };
 
   const onDownloadMdFile = () => {
-    const text = getMeetingText(
-      title,
-      purpose,
-      meetingType,
-      goals,
-      agendas,
-      proceed,
-      notes
-    );
+    const text = getMeetingText(title, purpose, meetingType, goals, agendas, proceed, notes);
     downloadMdFile(text, "meeting");
   };
 
@@ -234,9 +218,7 @@ const Page = () => {
   };
 
   const setProceedByTemplate = () => {
-    const template = proceedTemplates.find(
-      (t) => t.id === meetingType
-    )?.template;
+    const template = proceedTemplates.find((t) => t.id === meetingType)?.template;
     if (!template) return;
     setProceed(template);
   };
@@ -333,22 +315,15 @@ const Page = () => {
             <p>共有事項・資料</p>
           </div>
           <div>
-            <Textarea
-              value={notes}
-              onChange={(e) => setNotes(e.target.value)}
-            />
+            <Textarea value={notes} onChange={(e) => setNotes(e.target.value)} />
           </div>
         </div>
         <div className="grid grid-cols-[200px_1fr] gap-4">
           <div></div>
           <div className="flex flex-wrap gap-2">
             <Button onClick={onCopyToClipboard}>クリップボードにコピー</Button>
-            <Button onClick={onDownloadMdFile}>
-              マークダウンファイルをダウンロード
-            </Button>
-            <Button onClick={onDownloadJsonFile}>
-              JSONファイルをダウンロード
-            </Button>
+            <Button onClick={onDownloadMdFile}>マークダウンファイルをダウンロード</Button>
+            <Button onClick={onDownloadJsonFile}>JSONファイルをダウンロード</Button>
           </div>
         </div>
       </div>

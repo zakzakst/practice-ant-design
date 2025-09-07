@@ -14,13 +14,7 @@ type Props = {
   maxLength: number;
 };
 
-export const TextareaWithCounter = ({
-  name,
-  label,
-  control,
-  rules = {},
-  maxLength,
-}: Props) => {
+export const TextareaWithCounter = ({ name, label, control, rules = {}, maxLength }: Props) => {
   const mergedRules: RegisterOptions = {
     ...rules,
     maxLength: rules?.maxLength ?? {
@@ -51,12 +45,7 @@ export const TextareaWithCounter = ({
       <label htmlFor={name} className="block font-bold">
         {label}
       </label>
-      <textarea
-        id={name}
-        {...field}
-        className="w-full rounded border p-2"
-        rows={4}
-      />
+      <textarea id={name} {...field} className="w-full rounded border p-2" rows={4} />
       <div className={clsx("text-right text-sm", counterColor)}>
         {currentLength} / {maxLength} 文字
       </div>

@@ -1,12 +1,6 @@
 "use client";
 // NOTE: API通信関連（内容はstep6と同様なのでメモのみ）
-import React, {
-  useReducer,
-  useEffect,
-  createContext,
-  useContext,
-  ReactNode,
-} from "react";
+import React, { useReducer, useEffect, createContext, useContext, ReactNode } from "react";
 
 // 1️⃣ 状態の型定義
 type Todo = {
@@ -73,9 +67,7 @@ const TodoProvider = ({ children }: { children: ReactNode }) => {
     const fetchTodos = async () => {
       dispatch({ type: ActionTypes.FETCH_TODOS_REQUEST });
       try {
-        const response = await fetch(
-          "https://jsonplaceholder.typicode.com/todos?_limit=5"
-        );
+        const response = await fetch("https://jsonplaceholder.typicode.com/todos?_limit=5");
         const data: Todo[] = await response.json();
         dispatch({ type: ActionTypes.FETCH_TODOS_SUCCESS, payload: data });
       } catch {
@@ -89,11 +81,7 @@ const TodoProvider = ({ children }: { children: ReactNode }) => {
     fetchTodos();
   }, []);
 
-  return (
-    <TodoContext.Provider value={{ state, dispatch }}>
-      {children}
-    </TodoContext.Provider>
-  );
+  return <TodoContext.Provider value={{ state, dispatch }}>{children}</TodoContext.Provider>;
 };
 
 // 7️⃣ カスタムフック（Contextの利用を簡単にするため）

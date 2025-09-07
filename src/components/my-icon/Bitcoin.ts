@@ -10,5 +10,4 @@ const BitcoinIconNodes = [
   },
 ];
 
-export const Bitcoin = (props: IconProps) =>
-  createIcon(props, BitcoinIconNodes);
+export const Bitcoin = (props: IconProps) => createIcon(props, BitcoinIconNodes);

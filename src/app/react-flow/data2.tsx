@@ -1,7 +1,7 @@
 // https://zenn.dev/moneyforward/articles/d7528327f63ed4
 import type { FC } from "react";
 import { Position, Handle, BaseEdge, getSmoothStepPath } from "@xyflow/react";
-import type { NodeProps, Node, EdgeProps, Edge , HandleProps } from "@xyflow/react";
+import type { NodeProps, Node, EdgeProps, Edge, HandleProps } from "@xyflow/react";
 
 // Node
 export const CustomHandle: FC<HandleProps> = (props) => {

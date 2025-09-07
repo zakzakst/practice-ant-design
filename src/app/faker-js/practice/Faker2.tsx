@@ -33,29 +33,13 @@ export const Faker = () => {
       <p>{JSON.stringify(faker.helpers.arrayElements([1, 2, 3, 4, 5], 2))}</p>
       <p>{faker.helpers.rangeToNumber({ min: 1, max: 10 })}</p>
       {/* 過去（years指定） */}
-      <p>
-        {faker.date
-          .past({ years: 10, refDate: "2025-01-01T00:00:00.000Z" })
-          .toDateString()}
-      </p>
+      <p>{faker.date.past({ years: 10, refDate: "2025-01-01T00:00:00.000Z" }).toDateString()}</p>
       {/* 未来（years指定） */}
-      <p>
-        {faker.date
-          .future({ years: 10, refDate: "2025-01-01T00:00:00.000Z" })
-          .toDateString()}
-      </p>
+      <p>{faker.date.future({ years: 10, refDate: "2025-01-01T00:00:00.000Z" }).toDateString()}</p>
       {/* 近い過去（days指定） */}
-      <p>
-        {faker.date
-          .recent({ days: 10, refDate: "2025-01-01T00:00:00.000Z" })
-          .toDateString()}
-      </p>
+      <p>{faker.date.recent({ days: 10, refDate: "2025-01-01T00:00:00.000Z" }).toDateString()}</p>
       {/* 近い未来（days指定） */}
-      <p>
-        {faker.date
-          .soon({ days: 10, refDate: "2025-01-01T00:00:00.000Z" })
-          .toDateString()}
-      </p>
+      <p>{faker.date.soon({ days: 10, refDate: "2025-01-01T00:00:00.000Z" }).toDateString()}</p>
       <div
         style={{
           width: "200px",

@@ -33,11 +33,7 @@ export default function RootLayout({
       {/* <body
         className={`${geistSans.variable} ${geistMono.variable} ${fontNotoSansJp.variable} antialiased`}
       > */}
-      <body
-        className={`${fontNotoSansJp.variable} ${fontNotoSansMono.variable}`}
-      >
-        {children}
-      </body>
+      <body className={`${fontNotoSansJp.variable} ${fontNotoSansMono.variable}`}>{children}</body>
     </html>
   );
 }

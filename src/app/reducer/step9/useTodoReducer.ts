@@ -38,7 +38,7 @@ export const reducer = (state: State, action: Action): State => {
     case ActionTypes.TOGGLE_TODO:
       return {
         todos: state.todos.map((todo) =>
-          todo.id === action.id ? { ...todo, completed: !todo.completed } : todo
+          todo.id === action.id ? { ...todo, completed: !todo.completed } : todo,
         ),
       };
     case ActionTypes.REMOVE_TODO:

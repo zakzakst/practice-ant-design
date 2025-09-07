@@ -12,11 +12,7 @@ export const CounterProvider = ({ children }: { children: ReactNode }) => {
   const [count, setCount] = useState(0);
   const increment = () => setCount((prev) => prev + 1);
 
-  return (
-    <CounterContext.Provider value={{ count, increment }}>
-      {children}
-    </CounterContext.Provider>
-  );
+  return <CounterContext.Provider value={{ count, increment }}>{children}</CounterContext.Provider>;
 };
 
 export const useCounter = () => {

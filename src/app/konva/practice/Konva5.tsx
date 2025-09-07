@@ -55,7 +55,7 @@ export const KonvaPractice = () => {
     if (e.evt.shiftKey) {
       // Shiftキーが押されている場合の処理
       setSelectedIds((prev) =>
-        prev?.includes(id) ? prev.filter((sid) => sid !== id) : [...prev, id]
+        prev?.includes(id) ? prev.filter((sid) => sid !== id) : [...prev, id],
       );
     } else {
       // 通常の処理
@@ -103,9 +103,7 @@ export const KonvaPractice = () => {
                     onDragEnd={(e) => {
                       const { x, y } = e.target.position();
                       setShapes((prev) =>
-                        prev.map((s) =>
-                          s.id === shape.id ? { ...s, x, y } : s
-                        )
+                        prev.map((s) => (s.id === shape.id ? { ...s, x, y } : s)),
                       );
                     }}
                     ref={(node) => {
@@ -128,9 +126,7 @@ export const KonvaPractice = () => {
                     onDragEnd={(e) => {
                       const { x, y } = e.target.position();
                       setShapes((prev) =>
-                        prev.map((s) =>
-                          s.id === shape.id ? { ...s, x, y } : s
-                        )
+                        prev.map((s) => (s.id === shape.id ? { ...s, x, y } : s)),
                       );
                     }}
                     ref={(node) => {

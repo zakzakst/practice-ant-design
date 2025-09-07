@@ -8,9 +8,7 @@ export const useTodoReducer = () => {
     const fetchTodos = async () => {
       dispatch({ type: ActionTypes.FETCH_TODOS_REQUEST });
       try {
-        const res = await fetch(
-          "https://jsonplaceholder.typicode.com/todos?_limit=5"
-        );
+        const res = await fetch("https://jsonplaceholder.typicode.com/todos?_limit=5");
         const data: Todo[] = await res.json();
         dispatch({ type: ActionTypes.FETCH_TODOS_SUCCESS, payload: data });
       } catch {

@@ -80,8 +80,8 @@ const useGetTodo = (params: GetTodoParams) => {
   const url = IsUseErrorMock
     ? "https://dummyjson.com/http/404/404エラーのレスポンスメッセージ"
     : IsUseTodoMock
-    ? "static-data"
-    : "https://dummyjson.com/todos";
+      ? "static-data"
+      : "https://dummyjson.com/todos";
   const { data, error, isLoading } = useSWR({ url, params }, getTodoFetcher);
   return {
     data,
@@ -100,12 +100,7 @@ export const SwrSample = () => {
   return (
     <div>
       <h1>fetch GET Todo</h1>
-      <Input
-        type="number"
-        min={1}
-        step={1}
-        onChange={(e) => setPage(Number(e.target.value))}
-      />
+      <Input type="number" min={1} step={1} onChange={(e) => setPage(Number(e.target.value))} />
       {/* <div>{JSON.stringify(error)}</div> */}
       {error && <p>{error.data.message}</p>}
       {data && <div>{JSON.stringify(data)}</div>}

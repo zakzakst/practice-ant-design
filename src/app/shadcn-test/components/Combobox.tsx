@@ -12,11 +12,7 @@ import {
   CommandItem,
   CommandList,
 } from "@/components/ui/command";
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 
 export type Item = {
   value: string;
@@ -31,13 +27,7 @@ type Props = {
   onChangeValue: (value: string) => void;
 };
 
-export const Combobox = ({
-  value,
-  items,
-  placeholder,
-  emptyMessage,
-  onChangeValue,
-}: Props) => {
+export const Combobox = ({ value, items, placeholder, emptyMessage, onChangeValue }: Props) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -49,9 +39,7 @@ export const Combobox = ({
           aria-expanded={open}
           className="w-[200px] justify-between"
         >
-          {value
-            ? items.find((item) => item.value === value)?.label
-            : placeholder}
+          {value ? items.find((item) => item.value === value)?.label : placeholder}
           <ChevronsUpDown className="opacity-50" />
         </Button>
       </PopoverTrigger>
@@ -72,10 +60,7 @@ export const Combobox = ({
                 >
                   {item.label}
                   <Check
-                    className={cn(
-                      "ml-auto",
-                      value === item.value ? "opacity-100" : "opacity-0"
-                    )}
+                    className={cn("ml-auto", value === item.value ? "opacity-100" : "opacity-0")}
                   />
                 </CommandItem>
               ))}

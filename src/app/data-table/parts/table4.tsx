@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import {
   useReactTable,
@@ -8,7 +8,7 @@ import {
   getPaginationRowModel,
   flexRender,
   ColumnDef,
-} from '@tanstack/react-table'
+} from "@tanstack/react-table";
 import {
   Table,
   TableBody,
@@ -16,70 +16,70 @@ import {
   TableHead,
   TableHeader,
   TableRow,
-} from '@/components/ui/table'
-import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import { useEffect, useState } from 'react'
+} from "@/components/ui/table";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { useEffect, useState } from "react";
 
 type User = {
   id: number;
   name: string;
   email: string;
-}
+};
 
 export const DataTable = () => {
-  const [data, setData] = useState<User[]>([])
-  const [isLoading, setIsLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
-  const [filter, setFilter] = useState('')
+  const [data, setData] = useState<User[]>([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
+  const [filter, setFilter] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log('test')
+      console.log("test");
       try {
-        const res = await fetch('/api/users')
-        if (!res.ok) throw new Error('データ取得に失敗しました')
-        const users: User[] = await res.json()
-        setData(users)
+        const res = await fetch("/api/users");
+        if (!res.ok) throw new Error("データ取得に失敗しました");
+        const users: User[] = await res.json();
+        setData(users);
       } catch (e) {
-        setError((e as Error).message)
+        setError((e as Error).message);
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
-    }
-    fetchData()
-  }, [])
+    };
+    fetchData();
+  }, []);
 
   const columns: ColumnDef<User>[] = [
     {
-      accessorKey: 'id',
-      header: ({column}) => (
-        <button onClick={column.getToggleSortingHandler()}>
-          ID {column.getIsSorted() === 'asc' ? '↑' : column.getIsSorted() === 'desc' ? '↓' : ''}
-        </button>
-      )
-    },
-    {
-      accessorKey: 'name',
+      accessorKey: "id",
       header: ({ column }) => (
         <button onClick={column.getToggleSortingHandler()}>
-          名前 {column.getIsSorted() === 'asc' ? '↑' : column.getIsSorted() === 'desc' ? '↓' : ''}
+          ID {column.getIsSorted() === "asc" ? "↑" : column.getIsSorted() === "desc" ? "↓" : ""}
         </button>
       ),
     },
     {
-      accessorKey: 'email',
-      header: 'メール',
-      cell: info => {
-        const email = info.getValue() as string
+      accessorKey: "name",
+      header: ({ column }) => (
+        <button onClick={column.getToggleSortingHandler()}>
+          名前 {column.getIsSorted() === "asc" ? "↑" : column.getIsSorted() === "desc" ? "↓" : ""}
+        </button>
+      ),
+    },
+    {
+      accessorKey: "email",
+      header: "メール",
+      cell: (info) => {
+        const email = info.getValue() as string;
         return (
           <a href={`mailto:${email}`} className="text-blue-600 underline">
             {email}
           </a>
-        )
+        );
       },
     },
-  ]
+  ];
 
   const table = useReactTable({
     data,
@@ -90,14 +90,14 @@ export const DataTable = () => {
     initialState: {
       pagination: {
         pageSize: 3,
-      }
+      },
     },
     onGlobalFilterChange: setFilter,
     getCoreRowModel: getCoreRowModel(),
     getFilteredRowModel: getFilteredRowModel(),
     getSortedRowModel: getSortedRowModel(),
     getPaginationRowModel: getPaginationRowModel(),
-  })
+  });
 
   return (
     <div className="space-y-4 p-4">
@@ -111,15 +111,15 @@ export const DataTable = () => {
           <Input
             placeholder="名前やメールで検索..."
             value={filter}
-            onChange={e => setFilter(e.target.value)}
+            onChange={(e) => setFilter(e.target.value)}
             className="w-64"
           />
 
           <Table>
             <TableHeader>
-              {table.getHeaderGroups().map(headerGroup => (
+              {table.getHeaderGroups().map((headerGroup) => (
                 <TableRow key={headerGroup.id}>
-                  {headerGroup.headers.map(header => (
+                  {headerGroup.headers.map((header) => (
                     <TableHead key={header.id}>
                       {header.isPlaceholder
                         ? null
@@ -131,9 +131,9 @@ export const DataTable = () => {
             </TableHeader>
             <TableBody>
               {table.getRowModel().rows.length ? (
-                table.getRowModel().rows.map(row => (
+                table.getRowModel().rows.map((row) => (
                   <TableRow key={row.id}>
-                    {row.getVisibleCells().map(cell => (
+                    {row.getVisibleCells().map((cell) => (
                       <TableCell key={cell.id}>
                         {flexRender(cell.column.columnDef.cell, cell.getContext())}
                       </TableCell>
@@ -166,5 +166,5 @@ export const DataTable = () => {
         </>
       )}
     </div>
-  )
-}
+  );
+};

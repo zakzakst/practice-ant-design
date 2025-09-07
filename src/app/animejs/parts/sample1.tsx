@@ -58,7 +58,7 @@ export const Sample = () => {
               ease: "out(4)",
               duration: 500,
             },
-            "+=1000"
+            "+=1000",
           );
 
         tl.play();

@@ -19,5 +19,5 @@ console.log(
   usersSchema.safeParse([
     { id: 1, name: "Alice" },
     { id: 2, name: "Bob" },
-  ])
+  ]),
 ); // { success: true, data: [ { id: 1, name: 'Alice' }, { id: 2, name: 'Bob' } ] }

@@ -9,9 +9,7 @@ export const userRepository = {
     return response.data;
   },
   getPosts: async (authorId: number): Promise<Post[]> => {
-    const response = await axios.get<Post[]>(
-      `${API_BASE_URL}/users/${authorId}/posts`
-    );
+    const response = await axios.get<Post[]>(`${API_BASE_URL}/users/${authorId}/posts`);
     return response.data;
   },
 };

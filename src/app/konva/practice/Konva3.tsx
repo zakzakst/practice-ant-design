@@ -78,9 +78,7 @@ export const Konva = () => {
   };
 
   const handleDragEnd = (id: string, x: number, y: number) => {
-    setShapes((prev) =>
-      prev.map((shape) => (shape.id === id ? { ...shape, x, y } : shape))
-    );
+    setShapes((prev) => prev.map((shape) => (shape.id === id ? { ...shape, x, y } : shape)));
   };
 
   return (
@@ -116,12 +114,8 @@ export const Konva = () => {
                     draggable
                     // onClick={() => handleClick(shape.id)}
                     onClick={() => handleSelect(shape.id)}
-                    onDragEnd={(e) =>
-                      handleDragEnd(shape.id, e.target.x(), e.target.y())
-                    }
-                    ref={
-                      shape.id === selectedId ? attachTransformer : undefined
-                    }
+                    onDragEnd={(e) => handleDragEnd(shape.id, e.target.x(), e.target.y())}
+                    ref={shape.id === selectedId ? attachTransformer : undefined}
                   />
                 );
               }
@@ -138,12 +132,8 @@ export const Konva = () => {
                     draggable
                     // onClick={() => handleClick(shape.id)}
                     onClick={() => handleSelect(shape.id)}
-                    onDragEnd={(e) =>
-                      handleDragEnd(shape.id, e.target.x(), e.target.y())
-                    }
-                    ref={
-                      shape.id === selectedId ? attachTransformer : undefined
-                    }
+                    onDragEnd={(e) => handleDragEnd(shape.id, e.target.x(), e.target.y())}
+                    ref={shape.id === selectedId ? attachTransformer : undefined}
                   />
                 );
               }

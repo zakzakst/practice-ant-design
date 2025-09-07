@@ -52,9 +52,7 @@ const Page = () => {
       <input
         type="number"
         value={state.step}
-        onChange={(e) =>
-          dispatch({ type: "setStep", payload: Number(e.target.value) })
-        }
+        onChange={(e) => dispatch({ type: "setStep", payload: Number(e.target.value) })}
       />
       <div>
         <button onClick={() => dispatch({ type: "increment" })}>+</button>

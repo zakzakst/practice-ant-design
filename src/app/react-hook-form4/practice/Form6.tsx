@@ -51,9 +51,7 @@ const AddressField = ({ index, onRemove }: AddressFieldProps) => {
           value={postalCodeCtrl.field.value}
           onChange={(e) => handlePostalCodeChange(e.target.value)}
         />
-        {postalCodeCtrl.fieldState.error && (
-          <p>{postalCodeCtrl.fieldState.error.message}</p>
-        )}
+        {postalCodeCtrl.fieldState.error && <p>{postalCodeCtrl.fieldState.error.message}</p>}
       </div>
       <div>
         <Input
@@ -61,9 +59,7 @@ const AddressField = ({ index, onRemove }: AddressFieldProps) => {
           value={cityCtrl.field.value}
           onChange={(e) => cityCtrl.field.onChange(e.target.value)}
         />
-        {cityCtrl.fieldState.error && (
-          <p>{cityCtrl.fieldState.error.message}</p>
-        )}
+        {cityCtrl.fieldState.error && <p>{cityCtrl.fieldState.error.message}</p>}
       </div>
       <Button onClick={onRemove}>削除</Button>
     </div>
@@ -80,15 +76,9 @@ const AddressFields = () => {
       <Label>住所</Label>
       <div>
         {fields.map((field, index) => (
-          <AddressField
-            key={field.id}
-            index={index}
-            onRemove={() => remove(index)}
-          />
+          <AddressField key={field.id} index={index} onRemove={() => remove(index)} />
         ))}
-        <Button onClick={() => append({ postalCode: "", city: "" })}>
-          追加
-        </Button>
+        <Button onClick={() => append({ postalCode: "", city: "" })}>追加</Button>
       </div>
     </div>
   );

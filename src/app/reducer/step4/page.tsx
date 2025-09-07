@@ -50,11 +50,9 @@ const validate = (state: State): Errors => {
   const errors: Errors = {};
   if (!state.username) errors.username = "Username is required";
   if (!state.email) errors.email = "Email is required";
-  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email))
-    errors.email = "Invalid email format";
+  else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(state.email)) errors.email = "Invalid email format";
   if (!state.password) errors.password = "Password is required";
-  else if (state.password.length < 6)
-    errors.password = "Password must be at least 6 characters";
+  else if (state.password.length < 6) errors.password = "Password must be at least 6 characters";
   return errors;
 };
 
@@ -90,12 +88,7 @@ const Page = () => {
       <form onSubmit={handleSubmit}>
         <div>
           <label>Username:</label>
-          <input
-            type="text"
-            name="username"
-            value={state.username}
-            onChange={handleChange}
-          />
+          <input type="text" name="username" value={state.username} onChange={handleChange} />
           {state.errors.username && <p>{state.errors.username}</p>}
         </div>
         <div>
@@ -110,12 +103,7 @@ const Page = () => {
         </div>
         <div>
           <label>Password:</label>
-          <input
-            type="password"
-            name="password"
-            value={state.password}
-            onChange={handleChange}
-          />
+          <input type="password" name="password" value={state.password} onChange={handleChange} />
           {state.errors.password && <p>{state.errors.password}</p>}
         </div>
         <button type="submit" disabled={state.loading}>

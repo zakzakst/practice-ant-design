@@ -48,11 +48,7 @@ export const KonvaPractice = () => {
 
   const trRef = useRef<TransformerType | null>(null);
 
-  const handleTransformEnd = (
-    node: Konva.Node,
-    id: number,
-    type: "rect" | "circle"
-  ) => {
+  const handleTransformEnd = (node: Konva.Node, id: number, type: "rect" | "circle") => {
     const scaleX = node.scaleX();
     const scaleY = node.scaleY();
 
@@ -73,7 +69,7 @@ export const KonvaPractice = () => {
           return { ...shape, radius: newRadius };
         }
         return shape;
-      })
+      }),
     );
   };
 
@@ -116,13 +112,9 @@ export const KonvaPractice = () => {
                 onClick={() => setSelectedId(shape.id)}
                 onDragEnd={(e) => {
                   const { x, y } = e.target.position();
-                  setShapes((prev) =>
-                    prev.map((s) => (s.id === shape.id ? { ...s, x, y } : s))
-                  );
+                  setShapes((prev) => prev.map((s) => (s.id === shape.id ? { ...s, x, y } : s)));
                 }}
-                onTransformEnd={(e) =>
-                  handleTransformEnd(e.target, shape.id, "rect")
-                }
+                onTransformEnd={(e) => handleTransformEnd(e.target, shape.id, "rect")}
                 ref={shape.id === selectedId ? attachTransformer : undefined}
               />
             ) : (
@@ -136,16 +128,12 @@ export const KonvaPractice = () => {
                 onClick={() => setSelectedId(shape.id)}
                 onDragEnd={(e) => {
                   const { x, y } = e.target.position();
-                  setShapes((prev) =>
-                    prev.map((s) => (s.id === shape.id ? { ...s, x, y } : s))
-                  );
+                  setShapes((prev) => prev.map((s) => (s.id === shape.id ? { ...s, x, y } : s)));
                 }}
-                onTransformEnd={(e) =>
-                  handleTransformEnd(e.target, shape.id, "circle")
-                }
+                onTransformEnd={(e) => handleTransformEnd(e.target, shape.id, "circle")}
                 ref={shape.id === selectedId ? attachTransformer : undefined}
               />
-            )
+            ),
           )}
           <Transformer
             ref={trRef}
