@@ -1,5 +1,8 @@
 下記のパターン使える場面結構ありそうだから覚えておく
 
+- コンポーネントの props にジェネリクス型を設定できるようにする
+- checkbox, radio などの未選択状態のさばき方勉強する
+
 ```ts
 type FormValue = {
   name: string;
