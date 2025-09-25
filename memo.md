@@ -2,6 +2,7 @@
 
 - コンポーネントの props にジェネリクス型を設定できるようにする
 - checkbox, radio などの未選択状態のさばき方勉強する
+- context の利用勉強する
 
 ```ts
 type FormValue = {
