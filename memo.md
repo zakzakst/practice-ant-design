@@ -1,8 +1,6 @@
-下記のパターン使える場面結構ありそうだから覚えておく
-
-- コンポーネントの props にジェネリクス型を設定できるようにする
-- checkbox, radio などの未選択状態のさばき方勉強する
 - context の利用勉強する
+
+下記のパターン使える場面結構ありそうだから覚えておく
 
 ```ts
 type FormValue = {
@@ -19,6 +17,10 @@ const onSubmit = (value: FormSubmitValue) => {
   // idをPUTのidに使い、restをリクエストボディに設定する
 };
 ```
+
+- checkbox, radio などの未選択状態のさばき方勉強する
+  ⇒ 思ったよりエラーでない（今の現場の開発環境だと、エラー出てた印象。。。）
+  ⇒ 一旦保留
 
 https://zenn.dev/spacemarket/articles/f0fd5dc2ab54a2
 https://zenn.dev/dev_commune/articles/55a4ad785e233e
