@@ -21,6 +21,7 @@ export const Media = () => {
       };
 
       mediaRecorder.onstop = () => {
+        // NOTE: ここで、stop = true みたいなフラグ設定して、ondataavailableで分岐処理すると処理のタイミングコントロールできる？
         const blob = new Blob(chunksRef.current, { type: "audio/webm" });
         const url = URL.createObjectURL(blob);
         setAudioBlob(blob);
