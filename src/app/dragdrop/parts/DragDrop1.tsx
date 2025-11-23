@@ -58,7 +58,10 @@ export const DragDrop = () => {
         onDragStart={() => handleDragStart(image.id)}
         onDragOver={(e) => handleDragOver(e, image.id)}
         onDragEnd={handleDragEnd}
-        className={clsx("w-32 h-32 bg-cover cursor-grab")}
+        className={clsx(
+          "w-32 h-32 bg-cover cursor-grab",
+          image.id === draggingId && 'opacity-50'
+        )}
         style={{
           backgroundImage: `url(${image.url})`
         }}
