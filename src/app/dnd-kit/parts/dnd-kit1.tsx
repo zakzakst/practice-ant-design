@@ -1,10 +1,12 @@
 'use client'
 
+import { useId } from "react";
 import { useDraggable } from "@dnd-kit/core";
 
 export const DndKit = () => {
+  const id = useId();
   const { attributes, listeners, setNodeRef, transform } = useDraggable({
-    id: "draggable-box",
+    id,
   });
 
   const style = {
