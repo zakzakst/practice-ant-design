@@ -1,4 +1,5 @@
-import { ReactFlipToolkit } from "./parts/react-flip-toolkit1";
+// import { ReactFlipToolkit } from "./parts/react-flip-toolkit1";
+import { ReactFlipToolkit } from "./parts/react-flip-toolkit2";
 
 const Page = () => {
   return <div>
