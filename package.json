@@ -68,6 +68,7 @@
     "konva": "^9.3.22",
     "lottie-web": "^5.13.0",
     "lucide-react": "^0.474.0",
+    "motion": "^12.23.25",
     "next": "14.2.23",
     "react": "^18",
     "react-calendar": "^6.0.0",
