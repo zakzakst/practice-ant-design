@@ -6,7 +6,10 @@
 // import { Motion } from "./parts/motion6";
 // import { Motion } from "./parts/motion7";
 // import { Motion } from "./parts/motion8";
-import { Motion } from "./parts/motion9";
+// import { Motion } from "./parts/motion9";
+// import { Motion } from "./parts/motion10";
+// import { Motion } from "./parts/motion11";
+import { Motion } from "./parts/motion12";
 
 const Page = () => {
   return (
