@@ -1,38 +1,50 @@
 https://zakzakst.github.io/practice-ant-design/
 
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+## 概要
 
-## Getting Started
+様々なUI/フォーム機能、アニメーション、データ可視化などの技術的な実装例を集約した学習・プラクティス用のデモアプリケーションです。
 
-First, run the development server:
+## 使用技術
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+### フレームワーク・コア
+- Next.js 14
+- React 18
+- TypeScript
+- Tailwind CSS
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### UI コンポーネント
+- Ant Design (antd)
+- shadcn/ui (Radix UI)
+- Lucide React
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### フォーム・バリデーション
+- React Hook Form
+- Yup
+- Zod
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### データ処理・API
+- SWR
+- Axios
+- Orval
 
-## Learn More
+### アニメーション・ビジュアル
+- Motion
+- anime.js
+- Lottie
+- React Flip Toolkit
+- Konva
 
-To learn more about Next.js, take a look at the following resources:
+### その他
+- TanStack React Table
+- dnd-kit
+- react-calendar
+- FullCalendar
+- @xyflow/react
+- react-markdown
+- date-fns
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 起動方法
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### 必要な環境
+- Node.js
+- npm / yarn / pnpm / bun
