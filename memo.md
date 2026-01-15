@@ -1,3 +1,5 @@
+- https://zenn.dev/openjny/articles/a9d4f6ec2a05c2
+
 - https://ics.media/entry/240902/
 - https://ics.media/entry/251204/
 
