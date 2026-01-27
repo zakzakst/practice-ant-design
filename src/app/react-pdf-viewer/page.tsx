@@ -1,6 +1,6 @@
 "use client"
-import dynamic from 'next/dynamic';
-import React from 'react';
+// import dynamic from 'next/dynamic';
+// import React from 'react';
 import { Worker, Viewer } from '@react-pdf-viewer/core';
 
 const Page = () => {
